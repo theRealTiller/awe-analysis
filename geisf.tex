@@ -1,0 +1,81 @@
+\documentclass{scrartcl}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb}
+
+
+\newcommand{ \skap }[ 2 ]{ \langle #1, #2 \rangle }
+\newcommand{ \Skap }[ 2 ]{ \left\langle #1, #2 \right\rangle }
+
+\newcommand{ \skaq }[ 1 ]{ \langle #1 \rangle }
+\newcommand{ \Skaq }[ 1 ]{ \left\langle #1 \right\rangle }
+
+\newcommand{ \abs }[ 1 ]{ \lvert #1 \rvert }
+
+\newcommand{ \ormi }{ \mathbin{ \dashv } }
+
+\newcommand{ \normed }[ 1 ]{ \widehat{ #1 } }
+
+\newcommand{ \para }{ \parallel }
+
+\newcommand{ \mult }{ \cdot }
+
+\newcommand{ \diff }[ 2 ]{ \mathrm{D}^{ #1 }#2 }
+\newcommand{ \grad }[ 1 ]{ \nabla#1 }
+
+
+\begin{document}
+
+
+\begin{subequations}
+\begin{align}
+p  &:  \text{position}\\
+v  &:  \text{velocity}\\
+F  &:  \text{surface function}
+\end{align}
+\end{subequations}
+
+
+\begin{subequations}
+\begin{align}
+F  &=  F( p )  =  0\\
+\abs{ v }   &=   1\\
+\dot{ v }  &\perp  \grad{ F }
+\end{align}
+\end{subequations}
+
+
+\begin{align}
+\diff{}{ F }( v )  &=  0
+\end{align}
+
+
+\begin{align}
+\dot{ v }   &=  -\frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \mult \diff{ 2 }{ F }( v )
+\end{align}
+
+
+\begin{align}
+\ddot{ v }   &=
+\begin{aligned}
+- \frac{ \grad F }{    \skaq{ \grad F }^2 } \mult
+  \left[    \skaq{ \grad{ F } } \mult \diff{ 3 }{ F }( v )
+         +  2 \mult \diff{ 2 }{ F }( v, \grad{ F } ) \mult
+            \left( \diff{ 2 }{ F }( v ) - 1 \right) \right]
+-  \frac{ \diff{}{ \grad{ F } }( v ) }{ \skaq{ \grad{ F } } }
+\end{aligned}
+\end{align}
+
+
+\begin{align}
+\kappa   &=   -\frac{ \diff{ 2 }{ F }( v ) }{ \abs{ \grad{ F } } }\\
+\tau     &=   -\frac{ \skap{ \diff{}{ \grad{ F } }( v ) }{ v \times \grad{ F } } }{ \skaq{ \grad{ F } } }
+\end{align}
+
+
+
+\end{document}
