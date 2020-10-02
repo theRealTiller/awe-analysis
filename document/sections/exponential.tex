@@ -1,0 +1,58 @@
+\section{Exponential Mapping}
+
+
+\begin{subequations}
+\begin{align}
+\exp( p_0; v_0 )  &:  \text{exponential mapping at position $ p_0 $ and velocity $ v_0 $}
+\end{align}
+\end{subequations}
+
+
+\begin{subequations}
+\begin{align}
+\exp( p_0; v_0 )  &=  p_0  +  \int^1_0 v( t ) \intd{ t }\\
+p( 0 )  &\overset{ ! }{ = }   p_0\\
+v( 0 )  &\overset{ ! }{ = }   v_0
+\end{align}
+\end{subequations}
+
+
+%% \begin{align}
+%% \exp( p_0; v_0 )  &=  p_0  +  t \mult v_0  +  \int^1_0\left( \int^t_0 \dot{ v }( s ) \intd{ s } \right) \intd{ t }
+%% \end{align}
+
+
+\begin{subequations}
+\begin{align}
+\delta \left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)  &=
+\frac{ \diff{}{ \grad{ F } }( \delta p ) }{ \skaq{ \grad{ F } } }  -
+2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \delta p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }\\
+\delta\left( \diff{ 2 }{ F }( v ) \right)  &=
+\diff{ 3 }{ F }( v, v, \delta p )  -  2 \mult \diff{ 2 }{ F }( v, \delta v )
+\end{align}
+\end{subequations}
+
+
+\begin{subequations}
+\begin{align}
+\delta \dot{ v }   &=
+- \frac{ \grad F \mult A( v, \delta p, \delta v  )
++  \diff{}{ \grad{ F } }( \delta p ) \mult \diff{ 2 }{ F }( v ) }{ \skaq{ \grad{ F } } } \\
+\delta p( 0 )  &\overset{ ! }{ = }  0,\\
+\delta v( 0 )  &\overset{ ! }{ = }  u.
+\end{align}
+
+\begin{align}
+A( v, \delta p, \delta v  )  &:=
+\diff{ 3 }{ F }( v, v, \delta p ) -
+         2 \mult \left( \diff{ 2 }{ F }( v, \delta v ) +
+                        \frac{ \diff{ 2 }{ F }( v ) \mult \diff{ 2 }{ F }( \delta p, \grad{ F } )
+                                       }{ \skaq{ \grad{ F } } } \right)
+\end{align}
+\end{subequations}
+
+
+
+\begin{align}
+\diff{}{ \exp}( p_0; v_0, u )  =  \int^1_0 \delta v( t ) \intd{ t }
+\end{align}

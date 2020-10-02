@@ -7,6 +7,19 @@
 
 \usepackage{amsmath,amssymb}
 
+\usepackage[active,tightpage]{preview}
+
+\usepackage{etoolbox}
+
+\edef\keptparindent{\the\parindent}
+
+\patchcmd{\preview}
+  {\ignorespaces} %%% \preview ends with \ignorespaces
+    {\parindent\keptparindent\ignorespaces}
+  {}{}
+
+\renewcommand{\PreviewBorder}{1in}
+
 
 \newcommand{ \skap }[ 2 ]{ \langle #1, #2 \rangle }
 \newcommand{ \Skap }[ 2 ]{ \left\langle #1, #2 \right\rangle }
@@ -31,167 +44,11 @@
 
 
 \begin{document}
+\begin{preview}
 
 
-\newpage
-\section{Geodesics}
+\input{document/document}
 
 
-Variables:
-\begin{subequations}
-\begin{align}
-t  &:  \text{time}\\
-p( t )  &:  \text{position at time $ t $}\\
-v( t )  &:  \text{velocity at time $ t $}\\
-F( p )  &:  \text{level function at position $ p $}
-\end{align}
-\end{subequations}
-Simplified notation:
-\begin{subequations}
-\begin{align}
-p  &\equiv  p( t )\\
-v  &\equiv  v( t )
-\end{align}
-\end{subequations}
-Geodesic equations:
-\begin{subequations}
-\label{eq:geo}
-\begin{align}
-F( p )  &=  0
-\label{eq:geo:a}\\
-\dot{ v }  &\para  \grad{ F }( p )
-\label{eq:geo:b}
-\end{align}
-\end{subequations}
-Simplified notation:
-\begin{subequations}
-\begin{align}
-\diff{}{ F }( v )  &\equiv  \diff{}{ F }( p; v )\\
-\grad{ F }         &\equiv  \grad{ F }( p )
-\end{align}
-\end{subequations}
-Conclusion from \eqref{eq:geo:a}:
-\begin{align}
-\diff{}{ F }( p; v )  &=  0
-\label{eq:geo:aa}
-\end{align}
-Conclusion from \eqref{eq:geo:aa} and \eqref{eq:geo:b}:
-\begin{align}
-\dot{ v }   &=  -\frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \mult \diff{ 2 }{ F }( v )
-\end{align}
-Some preliminary calculations:
-\begin{align}
-\left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)^\bullet
-&=   \frac{ \diff{}{ \grad{ F } }( v ) }{ \skaq{ \grad{ F } } }
-            -  2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }\\
-\left( \diff{ 2 }{ F }( v ) \right)^\bullet  &=
-\diff{ 3 }{ F }( v )  -  2 \mult \frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } } }
-\end{align}
-Conclusion from \eqref{eq:geo:aa}:
-\begin{subequations}
-\begin{align}
-\ddot{ v }   &=
-- \frac{ \grad F \mult A( v )  +
-\diff{}{ \grad{ F } }( v ) \mult \diff{ 2 }{ F }( v ) }{ \skaq{ \grad{ F } } }
-\end{align}
-Used abbreviation:
-\begin{align}
-A( v )  &:=
-\diff{ 3 }{ F }( v ) -
-2 \mult \left( 1 + \diff{ 2 }{ F }( v ) \right) \mult
-\frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } } }
-\end{align}
-\end{subequations}
-
-
-\newpage
-\section{Curvature}
-
-
-Geometric quantities:
-\begin{subequations}
-\begin{align}
-\kappa( t )  &:  \text{curvature at time $ t $}\\
-\tau( t )    &:  \text{torsion at time $ t $}
-\end{align}
-\end{subequations}
-Simplified notation:
-\begin{subequations}
-\begin{align}
-\kappa  \equiv  \kappa( t )\\
-\tau    \equiv  \tau( t )
-\end{align}
-\end{subequations}
-Geometric equations:
-\begin{subequations}
-\begin{align}
-\kappa   &=   -\frac{ \diff{ 2 }{ F }( v ) }{ \abs{ \grad{ F } } \mult \skaq{ v } }\\
-\tau     &=   -\frac{ \diff{ 2 }{ F }( v, v \times \grad{ F } ) }{ \skaq{ \grad{ F } } \mult \skaq{ v } }
-\end{align}
-\end{subequations}
-
-
-\newpage
-\section{Derivative of the Exponential Mapping}
-
-
-\begin{subequations}
-\begin{align}
-\exp  &:  \text{exponential mapping}\\
-p_0  &:  \text{initial position}\\
-v_0  &:  \text{initial velocity}
-\end{align}
-\end{subequations}
-
-
-\begin{subequations}
-\begin{align}
-\exp( p_0; v_0 )  &=  p_0  +  \int^1_0 v( t ) \intd{ t }\\
-p( 0 )  &\overset{ ! }{ = }   p_0\\
-v( 0 )  &\overset{ ! }{ = }   v_0
-\end{align}
-\end{subequations}
-
-
-%% \begin{align}
-%% \exp( p_0; v_0 )  &=  p_0  +  t \mult v_0  +  \int^1_0\left( \int^t_0 \dot{ v }( s ) \intd{ s } \right) \intd{ t }
-%% \end{align}
-
-
-\begin{subequations}
-\begin{align}
-\delta \left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)  &=
-\frac{ \diff{}{ \grad{ F } }( \delta p ) }{ \skaq{ \grad{ F } } }  -
-2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \delta p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }\\
-\delta\left( \diff{ 2 }{ F }( v ) \right)  &=
-\diff{ 3 }{ F }( v, v, \delta p )  -  2 \mult \diff{ 2 }{ F }( v, \delta v )
-\end{align}
-\end{subequations}
-
-
-\begin{subequations}
-\begin{align}
-\delta \dot{ v }   &=
-- \frac{ \grad F \mult A( v, \delta p, \delta v  )
-+  \diff{}{ \grad{ F } }( \delta p ) \mult \diff{ 2 }{ F }( v ) }{ \skaq{ \grad{ F } } } \\
-\delta p( 0 )  &\overset{ ! }{ = }  0,\\
-\delta v( 0 )  &\overset{ ! }{ = }  u.
-\end{align}
-
-\begin{align}
-A( v, \delta p, \delta v  )  &:=
-\diff{ 3 }{ F }( v, v, \delta p ) -
-         2 \mult \left( \diff{ 2 }{ F }( v, \delta v ) +
-                        \frac{ \diff{ 2 }{ F }( v ) \mult \diff{ 2 }{ F }( \delta p, \grad{ F } )
-                                       }{ \skaq{ \grad{ F } } } \right)
-\end{align}
-\end{subequations}
-
-
-
-\begin{align}
-\diff{}{ \exp}( p_0; v_0, u )  =  \int^1_0 \delta v( t ) \intd{ t }
-\end{align}
-
-
+\end{preview}
 \end{document}

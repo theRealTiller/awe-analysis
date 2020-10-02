@@ -1,0 +1,98 @@
+\section{Geodesics}
+
+
+Notations for the level function:
+\begin{subequations}
+\begin{align}
+\mathbb{ E }  &:  \text{Euclidean space}\\
+p  &:  \text{position in Euclidean space}\\
+v  &:  \text{tangent vector at $ p $}\\
+F( p )  &:  \text{level function at position $ p $}\\
+\diff{}{ F }( p; v )  &:  \text{derivative of the level function at position $ p $ in direction $ v $}\\
+\grad{ F }( p )  &:  \text{gradient of the level function at position $ p $}
+\end{align}
+Surface definition:
+\begin{align}
+\mathbb{ S }  &:=  \{ p \in \mathbb{ E } \,;\, F( p )  = 0 \}
+\end{align}
+\end{subequations}
+
+
+
+\subsection{Basic differential equation for geodesics}
+
+
+
+Variables for geodesic:
+\begin{subequations}
+\begin{align}
+t  &:  \text{time}\\
+p( t )  &:  \text{position at time $ t $}\\
+v( t )  &:  \text{velocity at time $ t $}
+\end{align}
+\end{subequations}
+Simplified notation:
+\begin{subequations}
+\begin{align}
+p  &\equiv  p( t )\\
+v  &\equiv  v( t )
+\end{align}
+\end{subequations}
+Geodesic equations:
+\begin{subequations}
+\label{eq:geo}
+\begin{align}
+F( p )  &=  0
+\label{eq:geo:a}\\
+\dot{ v }  &\para  \grad{ F }( p )
+\label{eq:geo:b}
+\end{align}
+\end{subequations}
+Simplified notation:
+\begin{subequations}
+\begin{align}
+\diff{}{ F }( v )  &\equiv  \diff{}{ F }( p; v )\\
+\grad{ F }         &\equiv  \grad{ F }( p )
+\end{align}
+\end{subequations}
+Conclusion from \eqref{eq:geo:a}:
+\begin{align}
+\diff{}{ F }( p; v )  &=  0
+\label{eq:geo:aa}
+\end{align}
+
+As a conclusion from \eqref{eq:geo:aa} and \eqref{eq:geo:b}
+one obtains the differential equation that describes the geodesic motion:
+\begin{align}
+\dot{ v }   &=  -\frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \mult \diff{ 2 }{ F }( v )
+\end{align}
+
+
+
+\subsection{Higher derivatives}
+
+
+
+Some preliminary calculations:
+\begin{align}
+\left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)^\bullet
+&=   \frac{ \diff{}{ \grad{ F } }( v ) }{ \skaq{ \grad{ F } } }
+            -  2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }\\
+\left( \diff{ 2 }{ F }( v ) \right)^\bullet  &=
+\diff{ 3 }{ F }( v )  -  2 \mult \frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } } }
+\end{align}
+Conclusion from \eqref{eq:geo:aa}:
+\begin{subequations}
+\begin{align}
+\ddot{ v }   &=
+- \frac{ \grad F \mult A( v )  +
+\diff{}{ \grad{ F } }( v ) \mult \diff{ 2 }{ F }( v ) }{ \skaq{ \grad{ F } } }
+\end{align}
+Used abbreviation:
+\begin{align}
+A( v )  &:=
+\diff{ 3 }{ F }( v ) -
+2 \mult \left( 1 + \diff{ 2 }{ F }( v ) \right) \mult
+\frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } } }
+\end{align}
+\end{subequations}
