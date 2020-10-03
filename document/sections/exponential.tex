@@ -28,7 +28,8 @@ v( 0 )  &\overset{ ! }{ = }   v_0
 \frac{ \diff{}{ \grad{ F } }( \delta p ) }{ \skaq{ \grad{ F } } }  -
 2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \delta p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }\\
 \delta\left( \diff{ 2 }{ F }( v ) \right)  &=
-\diff{ 3 }{ F }( v, v, \delta p )  -  2 \mult \diff{ 2 }{ F }( v, \delta v )
+\diff{ 3 }{ F }( v, v, \delta p )  +
+2 \mult \diff{ 2 }{ F }( v, \delta v )
 \end{align}
 \end{subequations}
 
@@ -44,8 +45,8 @@ v( 0 )  &\overset{ ! }{ = }   v_0
 
 \begin{align}
 A( v, \delta p, \delta v  )  &:=
-\diff{ 3 }{ F }( v, v, \delta p ) -
-         2 \mult \left( \diff{ 2 }{ F }( v, \delta v ) +
+\diff{ 3 }{ F }( v, v, \delta p )  +
+         2 \mult \left( \diff{ 2 }{ F }( v, \delta v ) -
                         \frac{ \diff{ 2 }{ F }( v ) \mult \diff{ 2 }{ F }( \delta p, \grad{ F } )
                                        }{ \skaq{ \grad{ F } } } \right)
 \end{align}
