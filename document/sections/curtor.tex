@@ -18,8 +18,8 @@ Simplified notation:
 Geometric equations:
 \begin{subequations}
 \begin{align}
-\kappa   &=   -\frac{ \diff{ 2 }{ F }( v ) }{ \abs{ \grad{ F } } \mult \skaq{ v } }\\
-\tau     &=   -\frac{ \diff{ 2 }{ F }( v, v \times \grad{ F } ) }{ \skaq{ \grad{ F } } \mult \skaq{ v } }
+\kappa   &=   -\frac{ \diff{2}{F}( v ) }{ \abs{ \grad{F} } \mult \skaq{ v } }\\
+\tau     &=   -\frac{ \diff{2}{F}( v, v \times \grad{F} ) }{ \skaq{ \grad{F} } \mult \skaq{ v } }
 \end{align}
 \end{subequations}
 Additional assumption:
@@ -29,9 +29,9 @@ Additional assumption:
 Resulting simplified formulas:
 \begin{align}
     \kappa   &=
-    - \frac{ \diff{ 2 }{ F }( v ) }{ \abs{ \grad{ F } } }  \\
+    - \frac{ \diff{2}{F}( v ) }{ \abs{ \grad{F} } }  \\
     \tau   &=
-    - \frac{ \diff{ 2 }{ F }( v, v \times \grad{ F } ) }{ \skaq{ \grad{ F } } }
+    - \frac{ \diff{2}{F}( v, v \times \grad{F} ) }{ \skaq{ \grad{F} } }
 \end{align}
 
 
@@ -39,51 +39,61 @@ Resulting simplified formulas:
 
 
 
+Some preliminary calculations:
+\begin{align}
+    \left( \diff{2}{F}( v, v \times \grad{F} ) \right)^\bullet
+    &=
+    \diff{3}{F}( v, v, v \times \grad{F} )  +
+    \diff{2}{F}( \dot{ v }, v \times \grad{F} )  \nonumber\\
+    &\quad+
+    \diff{2}{F}( v, \dot{ v } \times \grad{F} )  +
+    \diff{2}{F}( v, v \times \diff{}{\grad{F}}( v ) )
+\end{align}
+Further preliminary calculations:
 \begin{subequations}
     \begin{align}
-        \left( \diff{ 2 }{ F }( v, v \times \grad{ F } ) \right)^\bullet   &=
-        \diff{3}{F}( v, v, v \times \grad{F} )  +
-        \diff{2}{F}( \dot{ v }, v \times \grad{F} )  \\
-        &\quad+  \diff{2}{F}( v, \dot{ v } \times \grad{F} )  +
-        \diff{2}{F}( v, v \times ( \grad{F} )^\bullet )\\
-        &=   \diff{ 3 }{ F }( v, v, v \times \grad{ F } )  -
-        \frac{ \diff{ 2 }{ F }( \grad{ F }, v \times \grad{ F } ) }{ \skaq{ \grad{ F } } } \mult
-        \diff{ 2 }{ F }( v )   \\
-        \left( \skaq{ \grad{ F } }^p \right)^\bullet   &=
-        2 p \mult \skaq{ \grad{ F } }^{p-1} \mult \diff{ 2 }{ F }( v, \grad{ F } )
+        \diff{2}{F}( v, \dot{v} \times \grad{F} )
+        &=
+        \diff{2}{F}( v, \grad{F} \times \grad{F} ) \mult
+        \diff{2}{F}( v ) / \skaq{ \grad{F} }   =   0   \\
+        \diff{2}{F}( v,  v \times \diff{}{\grad{F}}( v ) )
+        &=
+        \skap{ \diff{}{\grad{F}}( v ) }{ v \times \diff{}{\grad{F}}( v ) }   =   0
     \end{align}
 \end{subequations}
-
-
-\begin{subequations}    
-    \begin{align}
-        \kappa'   &=
-        - \frac{ \diff{ 3 }{ F }( v ) \mult \skaq{ \grad{ F } }  -
-        \diff{ 2 }{ F }( v, \grad{ F } ) \mult
-        \left( 2  +  \diff{ 2 }{ F }( v ) \right) }{
-        \abs{ \grad{ F } }^3 \mult \skaq{ v } }   \\
-        \tau'   &=
-        - \frac{ \diff{ 3 }{ F }( v, v, v \times \grad{ F } ) \mult \skaq{ \grad{ F } }  -
-        \diff{ 2 }{ F }( \grad{ F }, v \times \grad{ F } ) \mult \diff{ 2 }{ F }( v )  -
-        \diff{ 2 }{ F }( \grad{ F }, v \times \grad{ F } ) \mult \diff{ 2 }{ F }( v, \grad{ F } )
-        }{ \skaq{ \grad{ F } }^2 \mult \skaq{ v } }
-    \end{align}
-\end{subequations}
-
-
+Preliminary result:
 \begin{align}
-    \kappa   &=
+    \left( \diff{2}{F}( v, v \times \grad{F} ) \right)^\bullet
+    &=   \diff{3}{F}( v, v, v \times \grad{F} )  -
+    \frac{ \diff{2}{F}( \grad{F}, v \times \grad{F} ) }{ \skaq{ \grad{F} } } \mult
+    \diff{2}{F}( v )
+\end{align}
+% \begin{subequations}    
+%     \begin{align}
+%         \kappa'   &=
+%         - \frac{ \diff{3}{F}( v ) \mult \skaq{ \grad{F} }  -
+%         \diff{2}{F}( v, \grad{F} ) \mult
+%         \left( 2  +  \diff{2}{F}( v ) \right) }{
+%         \abs{ \grad{F} }^3 \mult \skaq{ v } }   \\
+%         \tau'   &=
+%         - \frac{ \diff{3}{F}( v, v, v \times \grad{F} ) \mult \skaq{ \grad{F} }  -
+%         \diff{2}{F}( \grad{F}, v \times \grad{F} ) \mult \diff{2}{F}( v )  -
+%         \diff{2}{F}( \grad{F}, v \times \grad{F} ) \mult \diff{2}{F}( v, \grad{F} )
+%         }{ \skaq{ \grad{F} }^2 \mult \skaq{ v } }
+%     \end{align}
+% \end{subequations}
+Result for the derivative of the curvature:
+\begin{align}
+    \dot{ \kappa }   &=
     - \frac{ \diff{3}{F}( v ) }{ \abs{ \grad{F} } }  +
     \frac{ \diff{2}{F}( v, \grad{F} ) \mult \left( 2 + \diff{2}{F}( v ) \right) }{
     \abs{ \grad{F} }^3 }
 \end{align}
-
-\begin{subequations}
-    \begin{align}
-        \tau   &=
-        - \frac{ \diff{2}{F}( v, v, v \times \grad{F} ) }{ \skaq{ \grad{F} } }  \\
-        &\quad+  \frac{ \diff{2}{F}( \grad{F}, v \times \grad{F} ) \mult \diff{2}{F}( v )  +
-        \diff{2}{F}( v, v \times \grad{F} ) \mult \diff{2}{F}( v, \grad{F} ) }{
-        \skaq{ \grad{F} }^2 }
-    \end{align}
-\end{subequations}
+Result for the derivative of the torsion:
+\begin{align}
+    \dot{ \tau }   &=
+    - \frac{ \diff{2}{F}( v, v, v \times \grad{F} ) }{ \skaq{ \grad{F} } }  \nonumber\\
+    &\quad+  \frac{ \diff{2}{F}( \grad{F}, v \times \grad{F} ) \mult \diff{2}{F}( v )  +
+    \diff{2}{F}( v, v \times \grad{F} ) \mult \diff{2}{F}( v, \grad{F} ) }{
+    \skaq{ \grad{F} }^2 }
+\end{align}
