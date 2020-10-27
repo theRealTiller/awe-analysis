@@ -35,7 +35,7 @@ Resulting simplified formulas:
 \end{align}
 
 
-\subsection{Higher Order Curvature and Torsion}
+\subsection{First derivative of curvature and torsion}
 
 
 
@@ -83,10 +83,16 @@ Preliminary result:
 %     \end{align}
 % \end{subequations}
 Result for the derivative of the curvature:
+% \begin{align}
+%     \dot{ \kappa }   &=
+%     - \frac{ \diff{3}{F}( v ) }{ \abs{ \grad{F} } }  +
+%     \frac{ \diff{2}{F}( v, \grad{F} ) \mult \left( 2 + \diff{2}{F}( v ) \right) }{
+%     \abs{ \grad{F} }^3 }
+% \end{align}
 \begin{align}
     \dot{ \kappa }   &=
     - \frac{ \diff{3}{F}( v ) }{ \abs{ \grad{F} } }  +
-    \frac{ \diff{2}{F}( v, \grad{F} ) \mult \left( 2 + \diff{2}{F}( v ) \right) }{
+    \frac{ 3 \mult \diff{2}{F}( v, \grad{F} ) \mult \diff{2}{F}( v ) }{
     \abs{ \grad{F} }^3 }
 \end{align}
 Result for the derivative of the torsion:
@@ -96,4 +102,37 @@ Result for the derivative of the torsion:
     &\quad+  \frac{ \diff{2}{F}( \grad{F}, v \times \grad{F} ) \mult \diff{2}{F}( v )  +
     \diff{2}{F}( v, v \times \grad{F} ) \mult \diff{2}{F}( v, \grad{F} ) }{
     \skaq{ \grad{F} }^2 }
+\end{align}
+
+
+
+
+\subsection{Second derivative of curvature and torsion}
+
+
+
+Some preliminary calculations:
+\begin{align}
+    \left( \diff{3}F( v ) \right)^\bullet   &=
+    \diff{4}{F}( v )  -
+    3 \mult \diff{3}{F}( v, v, \grad{F} ) \mult \diff{2}{F}( v ) / \skaq{\grad{F}}   \\
+    \diff{2}{F}( v, \diff{}{\grad{F}}( v ) )   &=
+    \skaq{\diff{}{F}( v )}   \\
+    \left( \diff{2}{F}( v, \grad{F} ) \right)^\bullet   &=
+    \diff{3}{F}( v, v, \grad{F} )  -
+    \diff{2}{F}( \grad{F} ) \mult \diff{2}{F}( v ) / \skaq{\grad{F}}  +
+    \skaq{\diff{}{\grad{F}}( v )}
+\end{align}
+Result for the curvature (the following is bullshit anyways...):
+\begin{align}
+    \ddot{\kappa}   &=
+    - \frac{ \diff{4}{F}( v ) }{ \abs{ \grad{F} } }   \\
+    &\quad+
+    \frac{ \diff{3}{F}( v, v, \grad{F} ) \mult ( 1 + 5 \mult \diff{2}{F}( v ) )  +
+    \diff{2}{F}( v, \grad{F} ) \mult \diff{3}{F}( v )  +
+    \skaq{\diff{}{\grad{F}}( v )} \mult ( 1 + 2 \mult \diff{2}{F}( v ) ) }{ \abs{ \grad{F} }^3 }   \\
+    &\quad+
+    \frac{ \left( \left( \diff{2}{F}( v, \grad{F} ) \right)^2  +  
+    \diff{3}{F}( v, \grad{F}, \grad{F} ) \right) \mult
+    ( 1 + 2 \mult \diff{2}{F}( v ) ) \mult \diff{2}{F}( v ) }{ \abs{ \grad{F} }^5 }
 \end{align}
