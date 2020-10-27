@@ -91,7 +91,7 @@ Further preliminary calculations:
 &=   \frac{ \diff{}{ \grad{ F } }( v ) }{ \skaq{ \grad{ F } } }
             -  2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }\\
 \left( \diff{ 2 }{ F }( v ) \right)^\bullet  &=
-\diff{ 3 }{ F }( v )  -  2 \mult \frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } } }
+\diff{ 3 }{ F }( v )  -  2 \mult \frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } } } \mult \diff{2}{F}( v )
 \end{align}
 Conclusion from \eqref{eq:geo:aa}:
 \begin{subequations}
@@ -101,10 +101,16 @@ Conclusion from \eqref{eq:geo:aa}:
 \diff{}{ \grad{ F } }( v ) \mult \diff{ 2 }{ F }( v ) }{ \skaq{ \grad{ F } } }
 \end{align}
 Used abbreviation:
+% \begin{align}
+% A( v )  &:=
+% \diff{ 3 }{ F }( v ) -
+% 2 \mult \left( 1 + \diff{ 2 }{ F }( v ) \right) \mult
+% \frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } } }
+% \end{align}
 \begin{align}
-A( v )  &:=
-\diff{ 3 }{ F }( v ) -
-2 \mult \left( 1 + \diff{ 2 }{ F }( v ) \right) \mult
-\frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } } }
+    A( v )  &:=
+    \diff{ 3 }{ F }( v ) -
+    4 \mult \diff{ 2 }{ F }( v ) \mult
+    \frac{ \diff{ 2 }{ F }( v, \grad{ F } ) }{ \skaq{ \grad{ F } } }
 \end{align}
 \end{subequations}
