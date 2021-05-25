@@ -26,7 +26,8 @@ v( 0 )  &\overset{ ! }{ = }   v_0
 \begin{align}
 \delta \left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)  &=
 \frac{ \diff{}{ \grad{ F } }( \delta p ) }{ \skaq{ \grad{ F } } }  -
-2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \delta p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }\\
+2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \delta p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }
+\label{vvdgl}\\
 \delta\left( \diff{ 2 }{ F }( v ) \right)  &=
 \diff{ 3 }{ F }( v, v, \delta p )  +
 2 \mult \diff{ 2 }{ F }( v, \delta v )
@@ -56,4 +57,57 @@ A( v, \delta p, \delta v  )  &:=
 
 \begin{align}
 \diff{}{ \exp}( p_0; v_0, u )  =  \int^1_0 \delta v( t ) \intd{ t }
+\end{align}
+
+
+\subsection{Transversal distortion factors}
+
+
+Consider the Ansatz
+\begin{align}
+    \delta p  =  \alpha \mult \grad{ F } \times v .
+\end{align}
+This implies that
+\begin{align}
+    \delta v  =
+    \dot{ \alpha } \mult \grad{ F } \times v  +
+    \alpha \mult \diff{}{ \grad{ F } }( v ) \times v
+\end{align}
+and
+\begin{align}
+    \delta \dot{ v }  &=
+    \ddot{ \alpha } \mult \grad{ F } \times v  +  \dots\nonumber\\
+    &\hphantom{{}={}}\dot{ \alpha } \mult 2 \diff{}{ \grad{ F } }( v ) \times v  +  \dots\nonumber\\
+    &\hphantom{{}={}}\alpha \mult \left[ \diff{}{ \grad{ F } }( v ) \times \dot{ v }  +
+    \diff{}{ \grad{ F } }( \dot{ v } ) \times v  +  
+    \diff{ 2 }{ \grad{ F } }( v ) \times v \right] .
+\end{align}
+One calculates the expressions
+\begin{subequations}
+    \begin{align}
+        \skap{ \grad{ F } \times v }{ \grad{ F } \times v }  &=
+        \skaq{ \grad{ F } } \skaq{ v }\\
+        \skap{ \grad{ F } \times v }{ \diff{}{ \grad{ F } }( v ) \times v }  &=
+        \skaq{ v } \mult \diff{2}{ F }( v, \grad{ F } )\\
+        \skap{ \grad{ F } \times v }{ \diff{}{ \grad{ F } }( v ) \times \dot{ v } }  &=
+        ( \diff{2}{ F }( v ) )^2\\
+        \skap{ \grad{ F } \times v }{ \diff{}{ \grad{ F } }( \dot{ v } ) \times v }  &=
+        -  \skaq{ v } \mult \frac{ \diff{2}{ F }( \grad{ F } ) \mult \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } }\\
+        \skap{ \grad{ F } \times v }{ \diff{2}{ \grad{ F } }( v ) \times v }  &=
+        \skaq{ v } \mult \diff{3}{ F }( v, v, \grad{ F } ) .
+    \end{align}
+\end{subequations}
+Equation \eqref{vvdgl} yields
+\begin{align}
+    \skap{ \grad{ F } \times v }{ \delta \dot{ v } }  &=
+    -\alpha \mult \frac{ \diff{2}{ F }( \grad{ F } \times v ) \mult \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } } .
+\end{align}
+For $ \alpha $ one arrives at the differential equation
+\begin{align}
+    &\ddot{ \alpha } \mult \skaq{ \grad{ F } } \skaq{ v }  +  \dots\nonumber\\
+    &\dot{ \alpha } \mult \diff{2}{ F }( v, \grad{ F } ) \skaq{ v }  +  \dots\nonumber\\
+    &\alpha \left[ ( \diff{2}{ F }( v ) )^2  -
+    \frac{ \skaq{ v } \diff{2}{ F }( \grad{ F } ) \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } }  +  \dots\right.\nonumber\\
+    &\qquad\left.\skaq{ v } \diff{3}{ F }( v, v, \grad{ F } )  +
+    \frac{ \diff{2}{ F }( \grad{ F } \times v ) \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } } \right]  =  0 .
 \end{align}
