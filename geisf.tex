@@ -7,18 +7,18 @@
 
 \usepackage{amsmath,amssymb}
 
-\usepackage[active,tightpage]{preview}
+% \usepackage[active,tightpage]{preview}
 
-\usepackage{etoolbox}
+% \usepackage{etoolbox}
 
-\edef\keptparindent{\the\parindent}
+% \edef\keptparindent{\the\parindent}
 
-\patchcmd{\preview}
-  {\ignorespaces} %%% \preview ends with \ignorespaces
-    {\parindent\keptparindent\ignorespaces}
-  {}{}
+% \patchcmd{\preview}
+%   {\ignorespaces} %%% \preview ends with \ignorespaces
+%     {\parindent\keptparindent\ignorespaces}
+%   {}{}
 
-\renewcommand{\PreviewBorder}{1in}
+% \renewcommand{\PreviewBorder}{1in}
 
 
 \newcommand{ \skap }[ 2 ]{ \langle #1, #2 \rangle }
@@ -44,11 +44,11 @@
 
 
 \begin{document}
-\begin{preview}
+%\begin{preview}
 
 
 \input{document/document}
 
 
-\end{preview}
+%\end{preview}
 \end{document}
