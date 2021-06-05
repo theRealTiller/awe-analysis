@@ -1,63 +1,73 @@
 \section{Exponential Mapping}
 
-
+The exponential mapping associated to $ F $ is defined as
 \begin{subequations}
-\begin{align}
-\exp( p_0; v_0 )  &:  \text{exponential mapping at position $ p_0 $ and velocity $ v_0 $}
-\end{align}
+    \label{def:gem}
+    \begin{align}
+        \label{def:gem:a}
+        \operatorname{Exp}( F; p_0; v_0 )  :=
+        p_0  +  \int^1_0 v( t ) \intd{ t } ,
+    \end{align}
+    where $ v $ is a geodesic satisfying the initial conditions
+    \begin{align}
+        p( 0 )  &\overset{ ! }{ = }   p_0 ,
+        \label{def:gem:b}\\
+        v( 0 )  &\overset{ ! }{ = }   v_0 ,
+        \label{def:gem:c}
+    \end{align}
+\end{subequations}
+where $ p_0 $ is a point on $ M $ and
+$ v_0 $ is a vector tangential to $ M $ at $ p_0 $.
+Thus, the value $ \operatorname{Exp}(F;p_0;v_0) $
+is determined by the Equations \eqref{def:cf},
+\eqref{def:gem:b} and \eqref{def:gem:c}.
+
+
+The partial derivative of the exponential mapping
+in the variable $ v_0 $ is explained by
+\begin{subequations}
+    \begin{align}
+        \diff{}{ \operatorname{Exp} }( F; p_0; v_0; u_0 )  =
+        \int^1_0 \delta v( t ) \intd{ t }
+    \end{align}
+    where
+    \begin{align}
+        \delta \dot{ v }   &=
+        A( v, \delta p )  +  B( v, \delta v ) \\
+        \delta p( 0 )  &\overset{ ! }{ = }  0,\\
+        \delta v( 0 )  &\overset{ ! }{ = }  u_0
+    \end{align}
+    and
+    \begin{align}
+        &\begin{aligned}
+            A( v, \delta p )   &=
+            - \frac{ \grad{F} }{ \skaq{ \grad{F} } }
+            \left(  \diff{3}{F}( v, v, \delta p )  -
+            2 \mult \diff{2}{F}( \delta p, \grad{F} ) \mult
+            \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  \right)  +  \dots\\
+            &\hphantom{={}} - \diff{}{\grad{F}}( \delta p ) \mult
+            \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} } ,
+        \end{aligned} \\
+        &B( v, \delta v )   =
+        - 2 \mult \frac{ \grad{F} }{ \skaq{ \grad{F} } }  \mult
+        \diff{2}{F}( v, \delta v ) .
+    \end{align}
 \end{subequations}
 
 
+
+Notizen zu den Berechnungen
 \begin{subequations}
-\begin{align}
-\exp( p_0; v_0 )  &=  p_0  +  \int^1_0 v( t ) \intd{ t }\\
-p( 0 )  &\overset{ ! }{ = }   p_0\\
-v( 0 )  &\overset{ ! }{ = }   v_0
-\end{align}
+    \begin{align}
+    \delta \left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)  &=
+    \frac{ \diff{}{ \grad{ F } }( \delta p ) }{ \skaq{ \grad{ F } } }  -
+    2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \delta p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }
+    \label{vvdgl}\\
+    \delta\left( \diff{ 2 }{ F }( v ) \right)  &=
+    \diff{ 3 }{ F }( v, v, \delta p )  +
+    2 \mult \diff{ 2 }{ F }( v, \delta v )
+    \end{align}
 \end{subequations}
-
-
-%% \begin{align}
-%% \exp( p_0; v_0 )  &=  p_0  +  t \mult v_0  +  \int^1_0\left( \int^t_0 \dot{ v }( s ) \intd{ s } \right) \intd{ t }
-%% \end{align}
-
-
-\begin{subequations}
-\begin{align}
-\delta \left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)  &=
-\frac{ \diff{}{ \grad{ F } }( \delta p ) }{ \skaq{ \grad{ F } } }  -
-2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \delta p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }
-\label{vvdgl}\\
-\delta\left( \diff{ 2 }{ F }( v ) \right)  &=
-\diff{ 3 }{ F }( v, v, \delta p )  +
-2 \mult \diff{ 2 }{ F }( v, \delta v )
-\end{align}
-\end{subequations}
-
-
-\begin{subequations}
-\begin{align}
-\delta \dot{ v }   &=
-- \frac{ \grad F \mult A( v, \delta p, \delta v  )
-+  \diff{}{ \grad{ F } }( \delta p ) \mult \diff{ 2 }{ F }( v ) }{ \skaq{ \grad{ F } } } \\
-\delta p( 0 )  &\overset{ ! }{ = }  0,\\
-\delta v( 0 )  &\overset{ ! }{ = }  u.
-\end{align}
-
-\begin{align}
-A( v, \delta p, \delta v  )  &:=
-\diff{ 3 }{ F }( v, v, \delta p )  +
-         2 \mult \left( \diff{ 2 }{ F }( v, \delta v ) -
-                        \frac{ \diff{ 2 }{ F }( v ) \mult \diff{ 2 }{ F }( \delta p, \grad{ F } )
-                                       }{ \skaq{ \grad{ F } } } \right)
-\end{align}
-\end{subequations}
-
-
-
-\begin{align}
-\diff{}{ \exp}( p_0; v_0, u )  =  \int^1_0 \delta v( t ) \intd{ t }
-\end{align}
 
 
 \subsection{Transversal distortion factors}
