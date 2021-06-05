@@ -85,16 +85,19 @@ Transversals property
     \skap{ \delta p }{ v }^\bullet  =
     \skap{ \delta v }{ v }  +  \skap{ \delta p }{ \dot{ v } }  =
     \delta( \tfrac12 \skaq{ v } )  +  \skap{ \delta p }{ \dot{ v } }
+    \label{def:ta}
 \end{align}
 Consider the Ansatz for the transversal case
 \begin{align}
     \delta p  =  \alpha \mult \grad{ F } \times v .
+    \label{eq:tad}
 \end{align}
 This implies that
 \begin{align}
     \delta v  =
     \dot{ \alpha } \mult \grad{ F } \times v  +
     \alpha \mult \diff{}{ \grad{ F } }( v ) \times v
+    \label{eq:tadd}
 \end{align}
 and
 \begin{align}
@@ -208,14 +211,15 @@ or, written differently as
 It still needs to be verified, that the transversal Ansatz works out.
 Therefore one calculates
 \begin{align}
-    \skap{ v }{ A( v, \alpha \grad{F} \times v ) + B( v, ( \alpha \grad{F} \times v )^\bullet ) }  &=
+    %\skap{ v }{ A( v, \alpha \grad{F} \times v ) + B( v, ( \alpha \grad{F} \times v )^\bullet ) }  &=
+    \skap{ v }{ \delta \dot{ v } }  &\overset{\eqref{def:dgem:b}}{=}
     -\alpha \mult \skap{ v }{ \diff{}{\grad{F}}( \grad{F} \times v ) } \mult \frac{ \diff{2}{F}( v ) }{ \skaq{ \grad{F} } }
     %\nonumber\\
     %&=  -\alpha \mult \frac{ \diff{2}{F}( v, \grad{F} \times v ) \mult \diff{2}{F}( v ) }{ \skaq{ \grad{F} } }
 \end{align}
 Heyho, nicht so viel Whiskey trinken:
 \begin{align}
-    \skap{ v }{ \delta \dot{ v } }  &=
+    \skap{ v }{ \delta \dot{ v } }  &\overset{\eqref{eq:tadd}}{=}
     -\alpha \mult \skap{ v }{ \diff{}{\grad{F}}( v ) \times \grad{F} }  \mult
     \frac{ \diff{2}{F}( v ) }{ \skaq{ \grad{ F } } }
     %&=  -\alpha \mult \frac{ \diff{2}{F}( v, \grad{F} \times v ) \mult \diff{2}{F}( v ) }{ \skaq{ \grad{F} } }
@@ -224,5 +228,6 @@ Hierbei berechnet man
 \begin{align}
     \skap{ v }{ \diff{}{\grad{F}}( v ) \times \grad{F} }  =
     \skap{ v }{ \diff{}{\grad{F}}( \grad{F} \times v ) }  =
-    \diff{2}{F}( v, \grad{F} \times v ) .
+    \diff{2}{F}( v, \grad{F} \times v )
 \end{align}
+und somit ist die $ v $-Komponente der DGL \eqref{def:dgem:b} eine Tautologie.
