@@ -79,8 +79,6 @@ Transversals property
     \skap{ \delta v }{ v }  +  \skap{ \delta p }{ \dot{ v } }  =
     \delta( \tfrac12 \skaq{ v } )  +  \skap{ \delta p }{ \dot{ v } }
 \end{align}
-
-
 Consider the Ansatz
 \begin{align}
     \delta p  =  \alpha \mult \grad{ F } \times v .
@@ -137,3 +135,48 @@ For $ \alpha $ one arrives at the differential equation
     \frac{ \diff{2}{ F }( \grad{ F } \times v ) }{ \skaq{ \grad{ F } }^2 \skaq{ v } } \right]  +
     \frac{ \diff{3}{ F }( v, v, \grad{ F } ) }{ \skaq{ \grad{ F } } } \right]  =  0 .
 \end{align}
+Written differently:
+\begin{subequations}
+    \begin{align}
+        \ddot{ \alpha }   =   \dot{ \alpha } \mult C  +  \alpha \mult D
+    \end{align}
+    with
+    \begin{align}
+        &\begin{aligned}
+            C   &=
+            {}-{} \diff{2}{F}( v )
+            \left( \frac{ 1 }{ \skaq{v} }
+            \left( \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
+            \frac{ \diff{2}{F}( \grad{F} \times v ) }{ \skaq{\grad{F}}^2 } \right)  -
+            \frac{ \diff{2}{F}( \grad{F} ) }{ \skaq{\grad{F}}^2 } \right)  +  \dots  \\
+            &\hphantom{={}}
+            + \frac{ \diff{3}{F}( v, v, \grad{F} ) }{ \skaq{\grad{F}} }
+        \end{aligned}\\
+        &D   =   - \frac{ \diff{2}{F}( v, \grad{F} ) }{ \skaq{\grad{F}} }
+    \end{align}
+\end{subequations}
+or, written differently as
+\begin{subequations}
+    \begin{align}
+        &\begin{aligned}
+            C   &=
+            - \diff{3}{F}( v, v, \darg{F} )  -
+            \diff{2}{F}( v )
+            \left( \frac{ 1 }{ \skaq{v} }
+            \left( \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
+            \diff{2}{F}( v^\circ ) \right)  -
+            \diff{2}{F}( \darg{F} ) \right)
+        \end{aligned}\\
+        &D   =   - \diff{2}{F}( v, \darg{F} )
+    \end{align}
+    where
+    \begin{align}
+        v^\circ   :=
+        \darg{F} \times v
+    \end{align}
+    und thus
+    \begin{align}
+        \delta p   =
+        \frac{ \alpha }{ \skaq{\grad{F}} } \mult v^\circ
+    \end{align}
+\end{subequations}
