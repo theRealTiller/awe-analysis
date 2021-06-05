@@ -26,16 +26,21 @@ is determined by the Equations \eqref{def:cf},
 The partial derivative of the exponential mapping
 in the variable $ v_0 $ is explained by
 \begin{subequations}
+    \label{def:dgem}
     \begin{align}
         \diff{}{ \operatorname{Exp} }( F; p_0; v_0; u_0 )  =
         \int^1_0 \delta v( t ) \intd{ t }
+        \label{def:dgem:a}
     \end{align}
     where
     \begin{align}
         \delta \dot{ v }   &=
-        A( v, \delta p )  +  B( v, \delta v ) \\
-        \delta p( 0 )  &\overset{ ! }{ = }  0,\\
+        A( v, \delta p )  +  B( v, \delta v )
+        \label{def:dgem:b}\\
+        \delta p( 0 )  &\overset{ ! }{ = }  0,
+        \label{def:dgem:c}\\
         \delta v( 0 )  &\overset{ ! }{ = }  u_0
+        \label{def:dgem:d}
     \end{align}
     and
     \begin{align}
@@ -47,10 +52,12 @@ in the variable $ v_0 $ is explained by
             \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  \right)  +  \dots\\
             &\hphantom{={}} - \diff{}{\grad{F}}( \delta p ) \mult
             \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} } ,
-        \end{aligned} \\
+        \end{aligned}
+        \label{def:dgem:e}\\
         &B( v, \delta v )   =
         - 2 \mult \frac{ \grad{F} }{ \skaq{ \grad{F} } }  \mult
         \diff{2}{F}( v, \delta v ) .
+        \label{def:dgem:f}
     \end{align}
 \end{subequations}
 
@@ -79,7 +86,7 @@ Transversals property
     \skap{ \delta v }{ v }  +  \skap{ \delta p }{ \dot{ v } }  =
     \delta( \tfrac12 \skaq{ v } )  +  \skap{ \delta p }{ \dot{ v } }
 \end{align}
-Consider the Ansatz
+Consider the Ansatz for the transversal case
 \begin{align}
     \delta p  =  \alpha \mult \grad{ F } \times v .
 \end{align}
@@ -97,6 +104,21 @@ and
     &\hphantom{{}={}}\alpha \mult \left[ \diff{}{ \grad{ F } }( v ) \times \dot{ v }  +
     \diff{}{ \grad{ F } }( \dot{ v } ) \times v  +  
     \diff{ 2 }{ \grad{ F } }( v ) \times v \right] .
+\end{align}
+Note, that the initial condition \eqref{def:dgem:c} translates to
+\begin{align}
+    \alpha( 0 )  \overset{!}{=}  0
+\end{align}
+and the initial condition \eqref{def:dgem:c} and \eqref{def:dgem:d} yield
+\begin{align}
+    \delta v( 0 )   \overset{!}{=}
+    \dot{ \alpha }( 0 ) \mult \grad{F}( p( 0 ) ) \times v( 0 )  =  u_0 ,
+\end{align}
+where $ u_0 $ is assumed to be transversal.
+Then it follows 
+\begin{align}
+    \dot{ \alpha }( 0 )   \overset{!}{=}
+    \frac{ \abs{ u_0 } }{ \abs{ \grad{F}[ p_0 ] } } .
 \end{align}
 One calculates the expressions
 \begin{subequations}
@@ -180,3 +202,27 @@ or, written differently as
         \frac{ \alpha }{ \skaq{\grad{F}} } \mult v^\circ
     \end{align}
 \end{subequations}
+
+
+
+It still needs to be verified, that the transversal Ansatz works out.
+Therefore one calculates
+\begin{align}
+    \skap{ v }{ A( v, \alpha \grad{F} \times v ) + B( v, ( \alpha \grad{F} \times v )^\bullet ) }  &=
+    -\alpha \mult \skap{ v }{ \diff{}{\grad{F}}( \grad{F} \times v ) } \mult \frac{ \diff{2}{F}( v ) }{ \skaq{ \grad{F} } }
+    %\nonumber\\
+    %&=  -\alpha \mult \frac{ \diff{2}{F}( v, \grad{F} \times v ) \mult \diff{2}{F}( v ) }{ \skaq{ \grad{F} } }
+\end{align}
+Heyho, nicht so viel Whiskey trinken:
+\begin{align}
+    \skap{ v }{ \delta \dot{ v } }  &=
+    -\alpha \mult \skap{ v }{ \diff{}{\grad{F}}( v ) \times \grad{F} }  \mult
+    \frac{ \diff{2}{F}( v ) }{ \skaq{ \grad{ F } } }
+    %&=  -\alpha \mult \frac{ \diff{2}{F}( v, \grad{F} \times v ) \mult \diff{2}{F}( v ) }{ \skaq{ \grad{F} } }
+\end{align}
+Hierbei berechnet man
+\begin{align}
+    \skap{ v }{ \diff{}{\grad{F}}( v ) \times \grad{F} }  =
+    \skap{ v }{ \diff{}{\grad{F}}( \grad{F} \times v ) }  =
+    \diff{2}{F}( v, \grad{F} \times v ) .
+\end{align}
