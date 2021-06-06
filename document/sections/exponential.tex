@@ -200,7 +200,7 @@ or, written differently as
             &\hphantom{=}-\diff{2}{F}( v )
             \left[ \frac{ 1 }{ \skaq{v} }
             \left[ \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
-            \diff{2}{F}( \grad{F} \times v ) \right]  -
+            \diff{2}{F}( \darg{F} \times v ) \right]  -
             \diff{2}{F}( \darg{F} ) \right]
         \end{aligned}\\
         &D   =   - \diff{2}{F}( v, \darg{F} )
@@ -241,82 +241,90 @@ Hierbei berechnet man
 und somit ist die $ v $-Komponente der DGL \eqref{def:dgem:b} eine Tautologie.
 
 
-Die $ \grad{F} $-Komponente:
+The $ \grad{F} $-component of \eqref{}
+for the transversal case \eqref{}
+can be calculated to be redundant.
+First one calculates the right hand side of \eqref{} term by term.
+First
 \begin{subequations}
     \label{vdgk:1}
-\begin{align}
-    \skap{ \grad{F} }{ - \darg{F} \mult
-    \diff{3}{F}( v, v, \delta p ) }   =
-    - \alpha \mult \diff{3}{F}( v, v, \grad{F} \times v )
-    \label{vdgk:1:a}
-\end{align}
-dann:
-\begin{align}
-    \skap{ \grad{F} }{ -2 \darg{F} \mult \diff{2}{F}( v, \delta p ) }   &=
-    - 2 \dot{ \alpha }  \mult  \diff{2}{F}( v, \grad{F} \times v )  -
-    2 \alpha  \mult \diff{2}{F}( v, \diff{}{\grad{F}}( v ) \times v )  \nonumber\\
-    &=   - 2 \dot{ \alpha }  \mult  \diff{2}{F}( v, \grad{F} \times v )
-    \label{vdgk:1:b}
-\end{align}
-wegen
-\begin{align*}
-    \diff{2}{F}( v, \diff{}{\grad{F}}( v ) \times v )  =
-    \skap{ \diff{}{\grad{F}}( v ) }{ \diff{}{\grad{F}}( v ) \times v }  =  0
-\end{align*}
-dann:
-\begin{align}
-    \skap{ \grad{F} }
-    { 2 \mult \darg{F} \mult \diff{2}{F}( v ) \mult
-    \diff{2}{F}( \delta p, \darg{F} ) }   &=
-    2 \alpha \mult \diff{2}{F}( v ) \mult
-    \diff{2}{F}( \grad{F}, \darg{F} \times v )
-    \label{vdgk:1:c}
-\end{align}
-weiter:
-\begin{align}
-    \skap{ \grad{F} }
-    { -\diff{}{\grad{F}}( \delta p ) \mult \diff{2}{F}( v ) / \skaq{ \grad{F} } }
-    =   - \alpha \mult \diff{2}{F}( v ) \mult
-    \diff{2}{F}( \grad{F}, \darg{F} \times v )
-    \label{vdgk:1:d}
-\end{align}
+    \begin{align}
+        \skap{ \grad{F} }{ - \darg{F} \mult
+        \diff{3}{F}( v, v, \delta p ) }   =
+        - \alpha \mult \diff{3}{F}( v, v, \grad{F} \times v ) ,
+        \label{vdgk:1:a}
+    \end{align}
+    second
+    \begin{align}
+        \skap{ \grad{F} }{ -2 \darg{F} \mult \diff{2}{F}( v, \delta p ) }   &=
+        - 2 ( \dot{ \alpha }  \mult  \diff{2}{F}( v, \grad{F} \times v )  +
+        \alpha  \mult \diff{2}{F}( v, \diff{}{\grad{F}}( v ) \times v ) )  \nonumber\\
+        &=   - 2 \dot{ \alpha }  \mult  \diff{2}{F}( v, \grad{F} \times v )
+        \label{vdgk:1:b}
+    \end{align}
+    due to
+    \begin{align*}
+        \diff{2}{F}( v, \diff{}{\grad{F}}( v ) \times v )  =
+        \skap{ \diff{}{\grad{F}}( v ) }{ \diff{}{\grad{F}}( v ) \times v }  =  0 ,
+    \end{align*}
+    third
+    \begin{align}
+        \skap{ \grad{F} }
+        { 2 \mult \darg{F} \mult \diff{2}{F}( v ) \mult
+        \diff{2}{F}( \delta p, \darg{F} ) }   &=
+        2 \alpha \mult \diff{2}{F}( v ) \mult
+        \diff{2}{F}( \grad{F}, \darg{F} \times v )
+        \label{vdgk:1:c}
+    \end{align}
+    and, fourth,
+    \begin{align}
+        \skap{ \grad{F} }
+        { -\diff{}{\grad{F}}( \delta p ) \mult \diff{2}{F}( v ) / \skaq{ \grad{F} } }
+        =   - \alpha \mult \diff{2}{F}( v ) \mult
+        \diff{2}{F}( \grad{F}, \darg{F} \times v ) .
+        \label{vdgk:1:d}
+    \end{align}
 \end{subequations}
-Andererseits:
+Evaluating the right hand side of \eqref{}
+term by term yields
 \begin{subequations}
     \label{vdgk:2}
-\begin{align}
-    \skap{ \grad{F} }
-    { 2 \dot{ \alpha } \mult \diff{}{\grad{F}}( v ) \times v }   =
-    - 2 \dot{ \alpha } \mult
-    \skap{ \grad{F} \times v }{ \diff{}{ \grad{F}( v ) } }   =
-    - 2 \dot{ \alpha } \mult \diff{2}{F}( v, \grad{F} \times v )
-    \label{vdgk:2:a}
-\end{align}
-
-\begin{align}
-    \skap{ \grad{F} }
-    { \alpha \mult \diff{}{ \grad{F} }( \dot{ v } ) \times v }   &=
-    \alpha \mult \diff{2}{F}( v ) \mult
-    \diff{2}{F}( \grad{F}, \darg{F} \times v )
-    \label{vdgk:2:b}
-\end{align}
-
-\begin{align}
-    \skap{ \grad{F} }
-    { \alpha \mult \diff{2}{\grad{F}}( v ) \times v }   &=
-    - \alpha \mult \diff{3}{F}( v, v, \grad{F} \times v )
-    \label{vdgk:2:c}
-\end{align}
+    \begin{align}
+        \skap{ \grad{F} }
+        { 2 \dot{ \alpha } \mult \diff{}{\grad{F}}( v ) \times v }   =
+        - 2 \dot{ \alpha } \mult
+        \skap{ \grad{F} \times v }{ \diff{}{ \grad{F}( v ) } }   =
+        - 2 \dot{ \alpha } \mult \diff{2}{F}( v, \grad{F} \times v ) ,
+        \label{vdgk:2:a}
+    \end{align}
+    second
+    \begin{align}
+        \skap{ \grad{F} }
+        { \alpha \mult \diff{}{ \grad{F} }( \dot{ v } ) \times v }   &=
+        \alpha \mult \diff{2}{F}( v ) \mult
+        \diff{2}{F}( \grad{F}, \darg{F} \times v )
+        \label{vdgk:2:b}
+    \end{align}
+    and, third,
+    \begin{align}
+        \skap{ \grad{F} }
+        { \alpha \mult \diff{2}{\grad{F}}( v ) \times v }   &=
+        - \alpha \mult \diff{3}{F}( v, v, \grad{F} \times v ) .
+        \label{vdgk:2:c}
+    \end{align}
 \end{subequations}
-Nun sieht man, dass $ \eqref{vdgk:1:a}  =  \eqref{vdgk:2:c} $,
-$ \eqref{vdgk:1:b}  =  \eqref{vdgk:2:a} $ und
+Now, one recognizes, that $ \eqref{vdgk:1:a}  =  \eqref{vdgk:2:c} $,
+$ \eqref{vdgk:1:b}  =  \eqref{vdgk:2:a} $ and
 $ \eqref{vdgk:1:c} + \eqref{vdgk:1:d}  =  \eqref{vdgk:2:b} $.
-Also ist die $ \grad{F} $-Komponente der Variationsdgl immer erfüllt.
+Thus, the $ \grad{F} $-component of \eqref{}
+is trivially fulfilled for $ \delta p  =  \alpha \mult \grad{F} \times v $.
 
 
-Insgesamt ist damit gezeigt,
-dass das folgende Anfangswertproblem bereits die Entwicklung
-von $ \delta p  =  \alpha \mult \grad{F} \times v $ korrekt beschreibt:
+
+Summing up, the calculations have shown
+that when $ u_0 $ is parallel to $ \grad{F} \times v $
+then $ \operatorname{Exp}( F, p_0, v_0, u_0 ) $ can be calculated
+via the following time evolution problem
 \begin{align}
     \alpha( 0 )  =  0  \\
     \dot{ \alpha }( 0 )  =  \frac{ \abs{ u_0 } }{ \abs{ \grad{F}( 0 ) } }
