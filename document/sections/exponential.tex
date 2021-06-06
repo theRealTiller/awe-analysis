@@ -334,3 +334,23 @@ mit
     \ddot{ \alpha }   =
     C \mult \alpha  +  D \mult \dot{ \alpha }
 \end{align}
+and the evolution equation
+\begin{subequations}
+    \begin{align}
+        \delta \dot{ v }   &=
+        \darg{F}( v ) \mult
+        (   \skap{ C_1( v ) }{ \delta p }  + 
+            \skap{ C_2( v ) }{ \delta v }     )  +
+        C_3( v, \delta p )
+    \end{align}
+    with
+    \begin{align}
+        C_1( v )  &=
+        -\diff{2}{\grad{F}}( v )  +
+        2 \mult \diff{}{\grad{F}}( \darg{F} ) \mult \diff{2}{F}( v )  \\
+        C_2( v )  &=
+        -2 \mult \diff{}{\grad{F}}( v )  \\
+        C_3( v, \delta p )  &=
+        - \diff{}{\grad{F}}( \delta p ) \mult \frac{ \diff{2}{F}(v ) }{ \skaq{ \grad{F} } }
+    \end{align}
+\end{subequations}
