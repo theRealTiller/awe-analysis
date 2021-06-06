@@ -57,9 +57,9 @@ in the variable $ v_0 $ is explained by
         &\begin{aligned}
             A( v, \delta p )   &=
             - \frac{ \grad{F} }{ \skaq{ \grad{F} } }
-            \left(  \diff{3}{F}( v, v, \delta p )  -
+            \left[  \diff{3}{F}( v, v, \delta p )  -
             2 \mult \diff{2}{F}( \delta p, \grad{F} ) \mult
-            \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  \right)  +  \dots\\
+            \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  \right]  +  \dots\\
             &\hphantom{={}} - \diff{}{\grad{F}}( \delta p ) \mult
             \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} } ,
         \end{aligned}
@@ -72,17 +72,48 @@ in the variable $ v_0 $ is explained by
 \end{subequations}
 
 
-In order to calculate, this,
-note that an application of the variation
+The right hand side of Equation \eqref{def:dgem:b} is obtained
+by applying the variation operator $ \delta $
+to both sides of Equation \eqref{def:cf}, which yields
+\begin{align}
+    \delta \dot{ v }  =
+    \delta \left(
+        -\frac{ \grad{F} }{ \skaq{ \grad{F} } }  \mult
+        \diff{2}{F}( v, \delta p ) \right) .
+\end{align}
+Here one calculates
 \begin{subequations}
     \begin{align}
     \delta \left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)  &=
     \frac{ \diff{}{ \grad{ F } }( \delta p ) }{ \skaq{ \grad{ F } } }  -
-    2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \delta p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }
-    \label{vvdgl}\\
+    2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \delta p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }\\
     \delta\left( \diff{ 2 }{ F }( v ) \right)  &=
     \diff{ 3 }{ F }( v, v, \delta p )  +
     2 \mult \diff{ 2 }{ F }( v, \delta v )
+    \end{align}
+\end{subequations}
+and obtains \eqref{def:dgem:b} from the product rule.
+
+
+
+Another equivalent form of the evolution equation \eqref{def:dgem:b} is
+\begin{subequations}
+    \begin{align}
+        \delta \dot{ v }   &=
+        \darg{F}( v ) \mult
+        [   \skap{ C_1( v ) }{ \delta p }  + 
+            \skap{ C_2( v ) }{ \delta v }     ]  +
+        C_3( v, \delta p )
+    \end{align}
+    with
+    \begin{align}
+        C_1( v )  &=
+        -\diff{2}{\grad{F}}( v )  +
+        2 \mult \diff{}{\grad{F}}( \darg{F} ) \mult \diff{2}{F}( v )  \\
+        C_2( v )  &=
+        -2 \mult \diff{}{\grad{F}}( v )  \\
+        C_3( v, \delta p )  &=
+        - \diff{}{\grad{F}}( \delta p ) \mult \frac{ \diff{2}{F}(v ) }{ \skaq{ \grad{F} } }
     \end{align}
 \end{subequations}
 
@@ -90,25 +121,29 @@ note that an application of the variation
 \subsection{Transversal Directional Derivatives}
 
 
-Transversals property
+
+Consider the case where $ u_0 $ is of the form
 \begin{align}
-    \skap{ \delta p }{ v }^\bullet  =
-    \skap{ \delta v }{ v }  +  \skap{ \delta p }{ \dot{ v } }  =
-    \delta( \tfrac12 \skaq{ v } )  +  \skap{ \delta p }{ \dot{ v } }
+    u_0  =  \alpha_0 \mult \grad{F}( p_0 ) \times v_0 .
 \end{align}
-Consider the Ansatz for the transversal case
+In the following it is demonstrated,
+that associated geodesic variation is of the form
 \begin{align}
-    \delta p  =  \alpha \mult \grad{ F } \times v .
+    \delta p  =  \alpha \mult \grad{ F } \times v ,
     \label{def:ta}
 \end{align}
-This implies that
+with a scalar function $ \alpha $.
+
+
+
+The first derivative of \eqref{def:ta} is
 \begin{align}
     \delta v  =
     \dot{ \alpha } \mult \grad{ F } \times v  +
     \alpha \mult \diff{}{ \grad{ F } }( v ) \times v
     \label{eq:tad}
 \end{align}
-and
+and the second derivative is
 \begin{align}
     \delta \dot{ v }  &=
     \ddot{ \alpha } \mult \grad{ F } \times v  +  \dots\nonumber\\
@@ -118,117 +153,54 @@ and
     \diff{ 2 }{ \grad{ F } }( v ) \times v \right] .
     \label{eq:tadd}
 \end{align}
-Note, that the initial condition \eqref{def:dgem:c} translates to
+
+
+First note, that the initial condition \eqref{def:dgem:c} translates to
 \begin{align}
-    \alpha( 0 )  \overset{!}{=}  0
+    \alpha( 0 )  \overset{!}{=}  0 .
 \end{align}
-and the initial condition \eqref{def:dgem:c} and \eqref{def:dgem:d} yield
+Further, the initial condition \eqref{def:dgem:c}
+and Equation \eqref{def:dgem:d} yield
 \begin{align}
     \delta v( 0 )   \overset{!}{=}
-    \dot{ \alpha }( 0 ) \mult \grad{F}( p( 0 ) ) \times v( 0 )  =  u_0 ,
+    \dot{ \alpha }( 0 ) \mult \grad{F}( p( 0 ) ) \times v( 0 )  =  u_0 .
 \end{align}
-where $ u_0 $ is assumed to be transversal.
-Then it follows 
+This results in the relation
 \begin{align}
-    \dot{ \alpha }( 0 )   \overset{!}{=}
+    \dot{ \alpha }_0   =
     \frac{ \abs{ u_0 } }{ \abs{ \grad{F}[ p_0 ] } } .
 \end{align}
-One calculates the expressions
-\begin{subequations}
-    \begin{align}
-        \skap{ \grad{ F } \times v }{ \grad{ F } \times v }  &=
-        \skaq{ \grad{ F } } \skaq{ v }\\
-        \skap{ \grad{ F } \times v }{ \diff{}{ \grad{ F } }( v ) \times v }  &=
-        \skaq{ v } \mult \diff{2}{ F }( v, \grad{ F } )\\
-        \skap{ \grad{ F } \times v }{ \diff{}{ \grad{ F } }( v ) \times \dot{ v } }  &=
-        ( \diff{2}{ F }( v ) )^2\\
-        \skap{ \grad{ F } \times v }{ \diff{}{ \grad{ F } }( \dot{ v } ) \times v }  &=
-        -  \skaq{ v } \mult \frac{ \diff{2}{ F }( \grad{ F } ) \mult \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } }\\
-        \skap{ \grad{ F } \times v }{ \diff{2}{ \grad{ F } }( v ) \times v }  &=
-        \skaq{ v } \mult \diff{3}{ F }( v, v, \grad{ F } ) .
-    \end{align}
-\end{subequations}
-Equation \eqref{vvdgl} yields
-\begin{align}
-    \skap{ \grad{ F } \times v }{ \delta \dot{ v } }  &=
-    -\alpha \mult \frac{ \diff{2}{ F }( \grad{ F } \times v ) \mult \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } } .
-\end{align}
-For $ \alpha $ one arrives at the differential equation
-\begin{align}
-    &\ddot{ \alpha } \mult \skaq{ \grad{ F } } \skaq{ v }  +  \dots\nonumber\\
-    &\dot{ \alpha } \mult \diff{2}{ F }( v, \grad{ F } ) \skaq{ v }  +  \dots\nonumber\\
-    &\alpha \left[ ( \diff{2}{ F }( v ) )^2  -
-    \frac{ \skaq{ v } \diff{2}{ F }( \grad{ F } ) \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } }  +  \dots\right.\nonumber\\
-    &\qquad\left.\skaq{ v } \diff{3}{ F }( v, v, \grad{ F } )  +
-    \frac{ \diff{2}{ F }( \grad{ F } \times v ) \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } } \right]  =  0 .
-\end{align}
-For $ \alpha $ one arrives at the differential equation
-\begin{align}
-    &\ddot{ \alpha }  +
-    \dot{ \alpha } \mult \frac{ \diff{2}{ F }( v, \grad{ F } ) }
-    { \skaq{ \grad{ F } } }  +  \dots\nonumber\\
-    &\alpha \left[ \diff{2}{ F }( v ) \left[ \frac{ \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } \skaq{ v } }  -
-    \frac{ \diff{2}{ F }( \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }  +
-    \frac{ \diff{2}{ F }( \grad{ F } \times v ) }{ \skaq{ \grad{ F } }^2 \skaq{ v } } \right]  +
-    \frac{ \diff{3}{ F }( v, v, \grad{ F } ) }{ \skaq{ \grad{ F } } } \right]  =  0 .
-\end{align}
-Written differently:
-\begin{subequations}
-    \begin{align}
-        \ddot{ \alpha }   =   \dot{ \alpha } \mult C  +  \alpha \mult D
-    \end{align}
-    with
-    \begin{align}
-        &\begin{aligned}
-            C   &=
-            - \frac{ \diff{3}{F}( v, v, \grad{F} ) }{ \skaq{\grad{F}} }  +  \dots \\
-            &- \diff{2}{F}( v )
-            \left[ \frac{ 1 }{ \skaq{v} }
-            \left[ \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
-            \frac{ \diff{2}{F}( \grad{F} \times v ) }{ \skaq{\grad{F}}^2 } \right]  -
-            \frac{ \diff{2}{F}( \grad{F} ) }{ \skaq{\grad{F}}^2 } \right]
-        \end{aligned}\\
-        &D   =   - \frac{ \diff{2}{F}( v, \grad{F} ) }{ \skaq{\grad{F}} }
-    \end{align}
-\end{subequations}
-or, written differently as
-\begin{subequations}
-    \begin{align}
-        &\begin{aligned}
-            C   &=
-            - \diff{3}{F}( v, v, \darg{F} )  +  \dots \\
-            &\hphantom{=}-\diff{2}{F}( v )
-            \left[ \frac{ 1 }{ \skaq{v} }
-            \left[ \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
-            \diff{2}{F}( \darg{F} \times v ) \right]  -
-            \diff{2}{F}( \darg{F} ) \right]
-        \end{aligned}\\
-        &D   =   - \diff{2}{F}( v, \darg{F} )
-    \end{align}
-\end{subequations}
 
 
+In order to proof the claim above,
+the approach is to take the scalar product
+of the right hand sides of \eqref{def:dgem:b} und \eqref{eq:tadd}
+with each $ v $, $ \grad{F} $ and $ \grad{F} \times v $.
 
-It still needs to be verified, that the transversal Ansatz works out.
-Therefore one calculates
+
+Starting with $ v $ one calculates
 \begin{align}
     \skap{ v }{ \delta \dot{ v } }  &\overset{\eqref{def:dgem:b}}{=}
     -\alpha \mult \skap{ v }{ \diff{}{\grad{F}}( \grad{F} \times v ) }  \mult
     \frac{ \diff{2}{F}( v ) }{ \skaq{ \grad{F} } }
+    \label{eq:v_da_1}
 \end{align}
-Heyho, nicht so viel Whiskey trinken:
+and
 \begin{align}
     \skap{ v }{ \delta \dot{ v } }  &\overset{\eqref{eq:tadd}}{=}
     -\alpha \mult \skap{ v }{ \diff{}{\grad{F}}( v ) \times \grad{F} }  \mult
-    \frac{ \diff{2}{F}( v ) }{ \skaq{ \grad{ F } } }
+    \frac{ \diff{2}{F}( v ) }{ \skaq{ \grad{ F } } } .
+    \label{eq:v_da_2}
 \end{align}
-Hierbei berechnet man
+However, due to
 \begin{align}
     \skap{ v }{ \diff{}{\grad{F}}( v ) \times \grad{F} }  =
     \skap{ v }{ \diff{}{\grad{F}}( \grad{F} \times v ) }  =
     \diff{2}{F}( v, \grad{F} \times v )
 \end{align}
-und somit ist die $ v $-Komponente der DGL \eqref{def:dgem:b} eine Tautologie.
+it follows that the right hand sides
+of \eqref{eq:v_da_1} and \eqref{eq:v_da_2} are equal.
+
 
 
 The $ \grad{F} $-component of \eqref{def:dgem:b}
@@ -313,6 +285,88 @@ is trivially fulfilled for $ \delta p  =  \alpha \mult \grad{F} \times v $.
 
 
 
+
+One calculates the expressions
+\begin{subequations}
+    \begin{align}
+        \skap{ \grad{ F } \times v }{ \grad{ F } \times v }  &=
+        \skaq{ \grad{ F } } \skaq{ v }\\
+        \skap{ \grad{ F } \times v }{ \diff{}{ \grad{ F } }( v ) \times v }  &=
+        \skaq{ v } \mult \diff{2}{ F }( v, \grad{ F } )\\
+        \skap{ \grad{ F } \times v }{ \diff{}{ \grad{ F } }( v ) \times \dot{ v } }  &=
+        ( \diff{2}{ F }( v ) )^2\\
+        \skap{ \grad{ F } \times v }{ \diff{}{ \grad{ F } }( \dot{ v } ) \times v }  &=
+        -  \skaq{ v } \mult \frac{ \diff{2}{ F }( \grad{ F } ) \mult \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } }\\
+        \skap{ \grad{ F } \times v }{ \diff{2}{ \grad{ F } }( v ) \times v }  &=
+        \skaq{ v } \mult \diff{3}{ F }( v, v, \grad{ F } ) .
+    \end{align}
+\end{subequations}
+Equation \eqref{def:dgem:b} yields
+\begin{align}
+    \skap{ \grad{ F } \times v }{ \delta \dot{ v } }  &=
+    -\alpha \mult \frac{ \diff{2}{ F }( \grad{ F } \times v ) \mult \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } } .
+\end{align}
+For $ \alpha $ one arrives at the differential equation
+\begin{align}
+    &\ddot{ \alpha } \mult \skaq{ \grad{ F } } \skaq{ v }  +  \dots\nonumber\\
+    &\dot{ \alpha } \mult \diff{2}{ F }( v, \grad{ F } ) \skaq{ v }  +  \dots\nonumber\\
+    &\alpha \left[ ( \diff{2}{ F }( v ) )^2  -
+    \frac{ \skaq{ v } \diff{2}{ F }( \grad{ F } ) \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } }  +  \dots\right.\nonumber\\
+    &\qquad\left.\skaq{ v } \diff{3}{ F }( v, v, \grad{ F } )  +
+    \frac{ \diff{2}{ F }( \grad{ F } \times v ) \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } } \right]  =  0 .
+\end{align}
+For $ \alpha $ one arrives at the differential equation
+\begin{align}
+    &\ddot{ \alpha }  +
+    \dot{ \alpha } \mult \frac{ \diff{2}{ F }( v, \grad{ F } ) }
+    { \skaq{ \grad{ F } } }  +  \dots\nonumber\\
+    &\alpha \left[ \diff{2}{ F }( v ) \left[ \frac{ \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } \skaq{ v } }  -
+    \frac{ \diff{2}{ F }( \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }  +
+    \frac{ \diff{2}{ F }( \grad{ F } \times v ) }{ \skaq{ \grad{ F } }^2 \skaq{ v } } \right]  +
+    \frac{ \diff{3}{ F }( v, v, \grad{ F } ) }{ \skaq{ \grad{ F } } } \right]  =  0 .
+\end{align}
+
+The equation can be cast in the form
+\begin{subequations}
+    \begin{align}
+        \ddot{ \alpha }   =
+        c_0 \mult \alpha  +
+        c_1 \mult \dot{ \alpha }
+    \end{align}
+    with the coefficients
+    \begin{align}
+        &\begin{aligned}
+            c_0   &=
+            - \frac{ \diff{3}{F}( v, v, \grad{F} ) }{ \skaq{\grad{F}} }  +  \dots \\
+            &\hphantom{={}}- \diff{2}{F}( v )
+            \left[ \frac{ 1 }{ \skaq{v} }
+            \left[ \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
+            \frac{ \diff{2}{F}( \grad{F} \times v ) }{ \skaq{\grad{F}}^2 } \right]  -
+            \frac{ \diff{2}{F}( \grad{F} ) }{ \skaq{\grad{F}}^2 } \right]
+        \end{aligned}\\
+        &c_1   =
+        - \frac{ \diff{2}{F}( v, \grad{F} ) }{ \skaq{\grad{F}} }
+    \end{align}
+\end{subequations}
+The coefficients can be rewritten a little more compactly as
+\begin{subequations}
+    \begin{align}
+        &\begin{aligned}
+            c_0   &=
+            - \diff{3}{F}( v, v, \darg{F} )  +  \dots \\
+            &\hphantom{=}-\diff{2}{F}( v )
+            \left[ \frac{ 1 }{ \skaq{v} }
+            \left[ \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
+            \diff{2}{F}( \darg{F} \times v ) \right]  -
+            \diff{2}{F}( \darg{F} ) \right] ,
+        \end{aligned}\\
+        &c_1   =   - \diff{2}{F}( v, \darg{F} ) .
+    \end{align}
+\end{subequations}
+
+
+
+
 Summing up, the calculations have shown
 that when $ u_0 $ is parallel to $ \grad{F} \times v $
 then $ \operatorname{Exp}( F, p_0, v_0, u_0 ) $ can be calculated
@@ -346,3 +400,12 @@ and the evolution equation
         - \diff{}{\grad{F}}( \delta p ) \mult \frac{ \diff{2}{F}(v ) }{ \skaq{ \grad{F} } }
     \end{align}
 \end{subequations}
+
+
+
+Transversals property
+\begin{align}
+    \skap{ \delta p }{ v }^\bullet  =
+    \skap{ \delta v }{ v }  +  \skap{ \delta p }{ \dot{ v } }  =
+    \delta( \tfrac12 \skaq{ v } )  +  \skap{ \delta p }{ \dot{ v } }
+\end{align}
