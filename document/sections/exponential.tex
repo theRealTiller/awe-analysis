@@ -95,19 +95,18 @@ Transversals property
     \skap{ \delta p }{ v }^\bullet  =
     \skap{ \delta v }{ v }  +  \skap{ \delta p }{ \dot{ v } }  =
     \delta( \tfrac12 \skaq{ v } )  +  \skap{ \delta p }{ \dot{ v } }
-    \label{def:ta}
 \end{align}
 Consider the Ansatz for the transversal case
 \begin{align}
     \delta p  =  \alpha \mult \grad{ F } \times v .
-    \label{eq:tad}
+    \label{def:ta}
 \end{align}
 This implies that
 \begin{align}
     \delta v  =
     \dot{ \alpha } \mult \grad{ F } \times v  +
     \alpha \mult \diff{}{ \grad{ F } }( v ) \times v
-    \label{eq:tadd}
+    \label{eq:tad}
 \end{align}
 and
 \begin{align}
@@ -117,6 +116,7 @@ and
     &\hphantom{{}={}}\alpha \mult \left[ \diff{}{ \grad{ F } }( v ) \times \dot{ v }  +
     \diff{}{ \grad{ F } }( \dot{ v } ) \times v  +  
     \diff{ 2 }{ \grad{ F } }( v ) \times v \right] .
+    \label{eq:tadd}
 \end{align}
 Note, that the initial condition \eqref{def:dgem:c} translates to
 \begin{align}
@@ -205,16 +205,6 @@ or, written differently as
         \end{aligned}\\
         &D   =   - \diff{2}{F}( v, \darg{F} )
     \end{align}
-    % where
-    % \begin{align}
-    %     v^\circ   :=
-    %     \darg{F} \times v
-    % \end{align}
-    % und thus
-    % \begin{align}
-    %     \delta p   =
-    %     \frac{ \alpha }{ \skaq{\grad{F}} } \mult v^\circ
-    % \end{align}
 \end{subequations}
 
 
@@ -241,10 +231,11 @@ Hierbei berechnet man
 und somit ist die $ v $-Komponente der DGL \eqref{def:dgem:b} eine Tautologie.
 
 
-The $ \grad{F} $-component of \eqref{}
-for the transversal case \eqref{}
+The $ \grad{F} $-component of \eqref{def:dgem:b}
+for the transversal case \eqref{eq:tadd}
 can be calculated to be redundant.
-First one calculates the right hand side of \eqref{} term by term.
+First one calculates the scalar product of $ \grad{F} $
+with the right hand side of \eqref{def:dgem:b} term by term.
 First
 \begin{subequations}
     \label{vdgk:1}
@@ -285,7 +276,8 @@ First
         \label{vdgk:1:d}
     \end{align}
 \end{subequations}
-Evaluating the right hand side of \eqref{}
+Evaluating the scalar product of $ \grad{F} $
+with the right hand side of \eqref{eq:tadd}
 term by term yields
 \begin{subequations}
     \label{vdgk:2}
@@ -316,7 +308,7 @@ term by term yields
 Now, one recognizes, that $ \eqref{vdgk:1:a}  =  \eqref{vdgk:2:c} $,
 $ \eqref{vdgk:1:b}  =  \eqref{vdgk:2:a} $ and
 $ \eqref{vdgk:1:c} + \eqref{vdgk:1:d}  =  \eqref{vdgk:2:b} $.
-Thus, the $ \grad{F} $-component of \eqref{}
+Thus, the $ \grad{F} $-component of $ \eqref{def:dgem:b} = \eqref{eq:tadd} $
 is trivially fulfilled for $ \delta p  =  \alpha \mult \grad{F} \times v $.
 
 
