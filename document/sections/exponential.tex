@@ -1,4 +1,9 @@
-\section{Exponential Mapping}
+\section{The Exponential Mapping and its First Derivative}
+
+
+
+\subsection{The Construction}
+
 
 The exponential mapping associated to $ F $ is defined as
 \begin{subequations}
@@ -32,17 +37,22 @@ in the variable $ v_0 $ is explained by
         \int^1_0 \delta v( t ) \intd{ t }
         \label{def:dgem:a}
     \end{align}
-    where
+    where $ \delta p $ is the curve
+    with $ \delta v  :=  ( \delta p)^\bullet $
+    determined by the initial values
     \begin{align}
-        \delta \dot{ v }   &=
-        A( v, \delta p )  +  B( v, \delta v )
-        \label{def:dgem:b}\\
         \delta p( 0 )  &\overset{ ! }{ = }  0,
         \label{def:dgem:c}\\
         \delta v( 0 )  &\overset{ ! }{ = }  u_0
         \label{def:dgem:d}
     \end{align}
-    and
+    and the evolution equation
+    \begin{align}
+        \delta \dot{ v }   &=
+        A( v, \delta p )  +  B( v, \delta v )
+        \label{def:dgem:b}
+    \end{align}
+    with
     \begin{align}
         &\begin{aligned}
             A( v, \delta p )   &=
@@ -62,8 +72,8 @@ in the variable $ v_0 $ is explained by
 \end{subequations}
 
 
-
-Notizen zu den Berechnungen
+In order to calculate, this,
+note that an application of the variation
 \begin{subequations}
     \begin{align}
     \delta \left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)  &=
@@ -77,7 +87,7 @@ Notizen zu den Berechnungen
 \end{subequations}
 
 
-\subsection{Transversal distortion factors}
+\subsection{Transversal Directional Derivatives}
 
 
 Transversals property
@@ -305,5 +315,14 @@ Also ist die $ \grad{F} $-Komponente der Variationsdgl immer erfüllt.
 
 
 Insgesamt ist damit gezeigt,
-dass das Anfangsproblem \eqref{} bereits die Entwicklung
-von $ \delta p  =  \alpha \mult \grad{F} \times v $ korrekt beschreibt.
+dass das folgende Anfangswertproblem bereits die Entwicklung
+von $ \delta p  =  \alpha \mult \grad{F} \times v $ korrekt beschreibt:
+\begin{align}
+    \alpha( 0 )  =  0  \\
+    \dot{ \alpha }( 0 )  =  \frac{ \abs{ u_0 } }{ \abs{ \grad{F}( 0 ) } }
+\end{align}
+mit
+\begin{align}
+    \ddot{ \alpha }   =
+    C \mult \alpha  +  D \mult \dot{ \alpha }
+\end{align}
