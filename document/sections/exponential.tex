@@ -79,7 +79,7 @@ to both sides of Equation \eqref{def:cf}, which yields
     \delta \dot{ v }  =
     \delta \left(
         -\frac{ \grad{F} }{ \skaq{ \grad{F} } }  \mult
-        \diff{2}{F}( v, \delta p ) \right) .
+        \diff{2}{F}( v ) \right) .
 \end{align}
 Here one calculates
 \begin{subequations}
@@ -147,7 +147,7 @@ and the second derivative is
 \begin{align}
     \delta \dot{ v }  &=
     \ddot{ \alpha } \mult \grad{ F } \times v  +  \dots\nonumber\\
-    &\hphantom{{}={}}\dot{ \alpha } \mult 2 \diff{}{ \grad{ F } }( v ) \times v  +  \dots\nonumber\\
+    &\hphantom{{}={}}\dot{ \alpha } \mult 2 \mult \diff{}{ \grad{ F } }( v ) \times v  +  \dots\nonumber\\
     &\hphantom{{}={}}\alpha \mult \left[ \diff{}{ \grad{ F } }( v ) \times \dot{ v }  +
     \diff{}{ \grad{ F } }( \dot{ v } ) \times v  +  
     \diff{ 2 }{ \grad{ F } }( v ) \times v \right] .
@@ -309,7 +309,7 @@ Equation \eqref{def:dgem:b} yields
 For $ \alpha $ one arrives at the differential equation
 \begin{align}
     &\ddot{ \alpha } \mult \skaq{ \grad{ F } } \skaq{ v }  +  \dots\nonumber\\
-    &\dot{ \alpha } \mult \diff{2}{ F }( v, \grad{ F } ) \skaq{ v }  +  \dots\nonumber\\
+    &\dot{ \alpha } \mult 2 \mult \diff{2}{ F }( v, \grad{ F } ) \skaq{ v }  +  \dots\nonumber\\
     &\alpha \left[ ( \diff{2}{ F }( v ) )^2  -
     \frac{ \skaq{ v } \diff{2}{ F }( \grad{ F } ) \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } }  +  \dots\right.\nonumber\\
     &\qquad\left.\skaq{ v } \diff{3}{ F }( v, v, \grad{ F } )  +
@@ -318,7 +318,7 @@ For $ \alpha $ one arrives at the differential equation
 For $ \alpha $ one arrives at the differential equation
 \begin{align}
     &\ddot{ \alpha }  +
-    \dot{ \alpha } \mult \frac{ \diff{2}{ F }( v, \grad{ F } ) }
+    \dot{ \alpha } \mult 2 \mult \frac{ \diff{2}{ F }( v, \grad{ F } ) }
     { \skaq{ \grad{ F } } }  +  \dots\nonumber\\
     &\alpha \left[ \diff{2}{ F }( v ) \left[ \frac{ \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } \skaq{ v } }  -
     \frac{ \diff{2}{ F }( \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }  +
@@ -345,7 +345,7 @@ The equation can be cast in the form
             \frac{ \diff{2}{F}( \grad{F} ) }{ \skaq{\grad{F}}^2 } \right]
         \end{aligned}\\
         &c_1   =
-        - \frac{ \diff{2}{F}( v, \grad{F} ) }{ \skaq{\grad{F}} }
+        - 2 \mult \frac{ \diff{2}{F}( v, \grad{F} ) }{ \skaq{\grad{F}} }
     \end{align}
 \end{subequations}
 The coefficients can be rewritten a little more compactly as
@@ -360,7 +360,7 @@ The coefficients can be rewritten a little more compactly as
             \diff{2}{F}( \darg{F} \times v ) \right]  -
             \diff{2}{F}( \darg{F} ) \right] ,
         \end{aligned}\\
-        &c_1   =   - \diff{2}{F}( v, \darg{F} ) .
+        &c_1   =   - 2 \mult \diff{2}{F}( v, \darg{F} ) .
     \end{align}
 \end{subequations}
 
@@ -373,7 +373,7 @@ then $ \operatorname{Exp}( F, p_0, v_0, u_0 ) $ can be calculated
 via the following time evolution problem
 \begin{align}
     \alpha( 0 )  =  0  \\
-    \dot{ \alpha }( 0 )  =  \frac{ \abs{ u_0 } }{ \abs{ \grad{F}( 0 ) } }
+    \dot{ \alpha }( 0 )  =  \frac{ \abs{ u_0 } }{ \abs{ \grad{F}( p_0 ) } }
 \end{align}
 mit
 \begin{align}
