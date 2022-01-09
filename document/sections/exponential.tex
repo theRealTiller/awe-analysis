@@ -43,10 +43,13 @@ of variational derivatives $ \vardiff $ of curves.
 Applying the variational derivative $ \vardiff $
 to Equation~\eqref{def:cf} according to
 \begin{align}
-    \vardiff \dot{ v }  =
     \vardiff \left(
-        -\frac{ \grad{F} }{ \skaq{ \grad{F} } }  \mult
-        \diff{2}{F}( v ) \right)
+    \frac{ \grad{F} }{ \skaq{ \grad{F} } } \mult \diff{2}{F}( v )
+    +
+    \dot{ v }
+    \right)
+    =
+    0
     \label{def:cf_vd}
 \end{align}
 results in a differential equation for $ \vardiff $ as follows.
@@ -236,6 +239,8 @@ However, due to
 \end{align}
 it follows that the right hand sides
 of \eqref{eq:v_da_1} and \eqref{eq:v_da_2} are equal.
+Thus, the $ \grad{F} $-komponent of equation \eqref{def:cf_vd_dgl}
+is always fulfilled for the ansatz \eqref{eq:ta}.
 
 
 Next one examines the $ \grad{F} $-component of \eqref{def:cf_vd_dgl}.
@@ -315,10 +320,6 @@ with the right hand side of \eqref{eq:tadd} yields the terms
         \label{vdgk:2:c}
     \end{align}
 \end{subequations}
-Now, one recognizes, that $ \eqref{vdgk:1:a}  =  \eqref{vdgk:2:c} $,
-$ \eqref{vdgk:1:b}  =  \eqref{vdgk:2:a} $ and
-$ \eqref{vdgk:1:c} + \eqref{vdgk:1:d}  =  \eqref{vdgk:2:b} $.
-
 Equation \eqref{vdgk:2:b} was obtained from
 \begin{align*}
     \skap{ \grad{F} }
@@ -327,7 +328,11 @@ Equation \eqref{vdgk:2:b} was obtained from
     \skap{ \grad{F} \times v }{ \diff{}{ \grad{F}( v ) } }   =
     - 2 \mult \dot{ \alpha } \mult \diff{2}{F}( v, \grad{F} \times v ) .
 \end{align*}
-
+Now, one recognizes, that $ \eqref{vdgk:1:a}  =  \eqref{vdgk:2:c} $,
+$ \eqref{vdgk:1:b}  =  \eqref{vdgk:2:a} $ and
+$ \eqref{vdgk:1:c} + \eqref{vdgk:1:d}  =  \eqref{vdgk:2:b} $.
+Thus, the $ \grad{F} \times v $-komponent of equation \eqref{def:cf_vd_dgl}
+is always fulfilled for the ansatz \eqref{eq:ta}.
 
 
 
