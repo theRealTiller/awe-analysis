@@ -1,14 +1,18 @@
-\section{Euclidean Geometry}
+\section{Setting}
 
+Throughout this note the symbol $ \mathbb{E} $
+will denote a fixed Euclidean space of dimension $ d \geq 2 $.
+The space $ \mathbb{E} $ will be treated as an affine space.
+Points from $ \mathbb{E} $ are typically
+denoted by $ p , q $ and vectors by $ v, u $.
+The vector pointing from $ p $ to $ q $ is denoted as $ q - p $.
+The scalar product of two vectors $ v $ and $ u $ from $ \mathbb{E} $
+will be denoted as $ \skap{ v }{ u } $.
 
-
-Notations for geometry:
+The letter $ F $ will denote an infinitely differentiable function
+with the property that $ \grad{F}( p ) \neq 0 $ whenever $ F( p ) = 0 $.
+Thus, by the implicit function theorem the set
 \begin{align}
-\skap{ v }{ u }_p  &:
-\text{scalar product of two tangent vectors $ v $ and $ u $ at a point $ p $}
+    M  :=  \{ p \in \mathbb{E} : F( p ) = 0 \}
 \end{align}
-Simplified notations:
-\begin{align}
-\skap{ v }{ u }  &\equiv  \skap{ v }{ u }_p\\
-\skaq{ v }       &\equiv  \skap{ v }{ v }
-\end{align}
+can be understood as an infinitely differentiable manifold.
