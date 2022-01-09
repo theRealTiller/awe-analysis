@@ -115,7 +115,7 @@ in the variable $ v_0 $ is explained by
 %     \begin{align}
 %         \vardiff \dot{ v }   &=
 %         A( v, \vardiff p )  +  B( v, \vardiff v )
-%         \label{def:dgem:b}
+%         \label{def:cf_vd_dgl}
 %     \end{align}
 %     with
 %     \begin{align}
@@ -137,7 +137,7 @@ in the variable $ v_0 $ is explained by
 % \end{subequations}
 
 
-% The right hand side of Equation \eqref{def:dgem:b} is obtained
+% The right hand side of Equation \eqref{def:cf_vd_dgl} is obtained
 % by applying the variation operator $ \vardiff $
 % to both sides of Equation \eqref{def:cf}, which yields
 % \begin{align}
@@ -157,11 +157,11 @@ in the variable $ v_0 $ is explained by
 %     2 \mult \diff{ 2 }{ F }( v, \vardiff v )
 %     \end{align}
 % \end{subequations}
-% and obtains \eqref{def:dgem:b} from the product rule.
+% and obtains \eqref{def:cf_vd_dgl} from the product rule.
 
 
 
-Another equivalent form of the evolution equation \eqref{def:dgem:b} is
+Another equivalent form of the evolution equation \eqref{def:cf_vd_dgl} is
 \begin{subequations}
     \begin{align}
         \vardiff \dot{ v }   &=
@@ -239,13 +239,13 @@ This results in the relation
 
 In order to proof the claim above,
 the approach is to take the scalar product
-of the right hand sides of \eqref{def:dgem:b} und \eqref{eq:tadd}
+of the right hand sides of \eqref{def:cf_vd_dgl} und \eqref{eq:tadd}
 with each $ v $, $ \grad{F} $ and $ \grad{F} \times v $.
 
 
 Starting with $ v $ one calculates
 \begin{align}
-    \skap{ v }{ \vardiff \dot{ v } }  &\overset{\eqref{def:dgem:b}}{=}
+    \skap{ v }{ \vardiff \dot{ v } }  &\overset{\eqref{def:cf_vd_dgl}}{=}
     -\alpha \mult \skap{ v }{ \diff{}{\grad{F}}( \grad{F} \times v ) }  \mult
     \frac{ \diff{2}{F}( v ) }{ \skaq{ \grad{F} } }
     \label{eq:v_da_1}
@@ -268,11 +268,11 @@ of \eqref{eq:v_da_1} and \eqref{eq:v_da_2} are equal.
 
 
 
-The $ \grad{F} $-component of \eqref{def:dgem:b}
+The $ \grad{F} $-component of \eqref{def:cf_vd_dgl}
 for the transversal case \eqref{eq:tadd}
 can be calculated to be redundant.
 First one calculates the scalar product of $ \grad{F} $
-with the right hand side of \eqref{def:dgem:b} term by term.
+with the right hand side of \eqref{def:cf_vd_dgl} term by term.
 First
 \begin{subequations}
     \label{vdgk:1}
@@ -345,7 +345,7 @@ term by term yields
 Now, one recognizes, that $ \eqref{vdgk:1:a}  =  \eqref{vdgk:2:c} $,
 $ \eqref{vdgk:1:b}  =  \eqref{vdgk:2:a} $ and
 $ \eqref{vdgk:1:c} + \eqref{vdgk:1:d}  =  \eqref{vdgk:2:b} $.
-Thus, the $ \grad{F} $-component of $ \eqref{def:dgem:b} = \eqref{eq:tadd} $
+Thus, the $ \grad{F} $-component of $ \eqref{def:cf_vd_dgl} = \eqref{eq:tadd} $
 is trivially fulfilled for $ \vardiff p  =  \alpha \mult \grad{F} \times v $.
 
 
@@ -366,7 +366,7 @@ One calculates the expressions
         \skaq{ v } \mult \diff{3}{ F }( v, v, \grad{ F } ) .
     \end{align}
 \end{subequations}
-Equation \eqref{def:dgem:b} yields
+Equation \eqref{def:cf_vd_dgl} yields
 \begin{align}
     \skap{ \grad{ F } \times v }{ \vardiff \dot{ v } }  &=
     -\alpha \mult \frac{ \diff{2}{ F }( \grad{ F } \times v ) \mult \diff{2}{ F }( v ) }{ \skaq{ \grad{ F } } } .
