@@ -53,10 +53,14 @@ results in a differential equation for $ \vardiff $ as follows.
 One calculates the variational derivatives
 \begin{subequations}
     \begin{align}
-    \vardiff \left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)  &=
+    \vardiff \left( \frac{ \grad{ F } }{ \skaq{ \grad{ F } } } \right)
+    &=
     \frac{ \diff{}{ \grad{ F } }( \vardiff p ) }{ \skaq{ \grad{ F } } }  -
-    2 \mult \grad{ F } \mult \frac{ \diff{ 2 }{ F }( \vardiff p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }\\
-    \vardiff\left( \diff{ 2 }{ F }( v ) \right)  &=
+    2 \mult \grad{ F } \mult
+    \frac{ \diff{ 2 }{ F }( \vardiff p, \grad{ F } ) }{ \skaq{ \grad{ F } }^2 }
+    \\
+    \vardiff\left( \diff{ 2 }{ F }( v ) \right)
+    &=
     \diff{ 3 }{ F }( v, v, \vardiff p )  +
     2 \mult \diff{ 2 }{ F }( v, \vardiff v )
     \end{align}
@@ -66,25 +70,26 @@ This results in the differential equation
 \begin{subequations}
     \label{def:cf_vd_dgl}
     \begin{align}
-        \vardiff \dot{ v }   &=
-        C_0( v, \vardiff p )  +  C_1( v, \vardiff v )
+        C_0( v, \vardiff p )  +  C_1( v, \vardiff v )  +  \vardiff \dot{ v }
+        &=
+        0
         \label{def:cf_vd_dgl:a}
     \end{align}
     with the coefficients
     \begin{align}
-        &\begin{aligned}
-            C_0( v, \vardiff p )   &=
-            - \frac{ \grad{F} }{ \skaq{ \grad{F} } }
-            \left[  \diff{3}{F}( v, v, \vardiff p )  -
-            2 \mult \diff{2}{F}( \vardiff p, \grad{F} ) \mult
-            \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  \right]  +  \dots\\
-            &\hphantom{={}} - \diff{}{\grad{F}}( \vardiff p ) \mult
-            \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} } ,
-        \end{aligned}
+        C_0( v, \vardiff p )
+        &=
+        \frac{ \grad{F} }{ \skaq{ \grad{F} } }
+        \left[  \diff{3}{F}( v, v, \vardiff p )  -
+        2 \mult \diff{2}{F}( \vardiff p, \grad{F} ) \mult
+        \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  \right]  +
+        \diff{}{\grad{F}}( \vardiff p ) \mult
+        \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} } ,
         \label{def:cf_vd_dgl:b}
         \\
-        &C_1( v, \vardiff v )   =
-        - 2 \mult \frac{ \grad{F} }{ \skaq{ \grad{F} } }  \mult
+        C_1( v, \vardiff v )
+        &=
+        2 \mult \frac{ \grad{F} }{ \skaq{ \grad{F} } }  \mult
         \diff{2}{F}( v, \vardiff v ) .
         \label{def:cf_vd_dgl:c}
     \end{align}
@@ -161,24 +166,28 @@ in the variable $ v_0 $ is explained by
 
 
 
-Another equivalent form of the evolution equation \eqref{def:cf_vd_dgl} is
+The evolution equation \eqref{def:cf_vd_dgl}
+can also be written in the form
 \begin{subequations}
     \begin{align}
-        \vardiff \dot{ v }   &=
+        \vardiff \dot{ v }  +
         \darg{F}( v ) \mult
-        [   \skap{ C_1( v ) }{ \vardiff p }  + 
-            \skap{ C_2( v ) }{ \vardiff v }     ]  +
-        C_3( v, \vardiff p )
+        [   \skap{ A_0( v ) }{ \vardiff p }  + 
+            \skap{ A_1( v ) }{ \vardiff v }     ]  +
+        B( v ) \mult \vardiff p
+        &=  0
     \end{align}
-    with
+    with the expressions
     \begin{align}
-        C_1( v )  &=
-        -\diff{2}{\grad{F}}( v )  +
-        2 \mult \diff{}{\grad{F}}( \darg{F} ) \mult \diff{2}{F}( v )  \\
-        C_2( v )  &=
-        -2 \mult \diff{}{\grad{F}}( v )  \\
-        C_3( v, \vardiff p )  &=
-        - \diff{}{\grad{F}}( \vardiff p ) \mult \frac{ \diff{2}{F}(v ) }{ \skaq{ \grad{F} } }
+        A_0( v )  &=
+        \diff{2}{\grad{F}}( v )  -
+        2 \mult \diff{}{\grad{F}}( \darg{F} ) \mult \diff{2}{F}( v ) ,
+        \\
+        A_1( v )  &=
+        2 \mult \diff{}{\grad{F}}( v ) ,
+        \\
+        B( v )  &=
+        \nabla^2F \mult \frac{ \diff{2}{F}(v ) }{ \skaq{ \grad{F} } } .
     \end{align}
 \end{subequations}
 
@@ -260,84 +269,67 @@ and
 However, due to
 \begin{align}
     \skap{ v }{ \diff{}{\grad{F}}( v ) \times \grad{F} }  =
-    \skap{ v }{ \diff{}{\grad{F}}( \grad{F} \times v ) }  =
+    \skap{ \grad{F} \times v }{ \diff{}{\grad{F}}( v ) }  =
     \diff{2}{F}( v, \grad{F} \times v )
 \end{align}
 it follows that the right hand sides
 of \eqref{eq:v_da_1} and \eqref{eq:v_da_2} are equal.
 
 
-
-The $ \grad{F} $-component of \eqref{def:cf_vd_dgl}
-for the transversal case \eqref{eq:tadd}
-can be calculated to be redundant.
-First one calculates the scalar product of $ \grad{F} $
-with the right hand side of \eqref{def:cf_vd_dgl} term by term.
-First
+Next one examines the $ \grad{F} $-component of \eqref{def:cf_vd_dgl}.
+Calculating the scalar product of $ \grad{F} $
+with the right hand side of \eqref{def:cf_vd_dgl} term by term yields
 \begin{subequations}
     \label{vdgk:1}
     \begin{align}
         \skap{ \grad{F} }{ - \darg{F} \mult
-        \diff{3}{F}( v, v, \vardiff p ) }   =
+        \diff{3}{F}( v, v, \vardiff p ) }
+        &=
         - \alpha \mult \diff{3}{F}( v, v, \grad{F} \times v ) ,
         \label{vdgk:1:a}
-    \end{align}
-    second
-    \begin{align}
-        \skap{ \grad{F} }{ -2 \darg{F} \mult \diff{2}{F}( v, \vardiff p ) }   &=
-        - 2 \left[ \dot{ \alpha }  \mult  \diff{2}{F}( v, \grad{F} \times v )  +
-        \alpha  \mult \diff{2}{F}( v, \diff{}{\grad{F}}( v ) \times v ) \right]  \nonumber\\
-        &=   - 2 \dot{ \alpha }  \mult  \diff{2}{F}( v, \grad{F} \times v )
+        \\
+        \skap{ \grad{F} }{ -2 \mult \darg{F} \mult \diff{2}{F}( v, \vardiff p ) }
+        &=
+        - 2 \mult \dot{ \alpha }  \mult  \diff{2}{F}( v, \grad{F} \times v ) ,
         \label{vdgk:1:b}
-    \end{align}
-    due to
-    \begin{align*}
-        \diff{2}{F}( v, \diff{}{\grad{F}}( v ) \times v )  =
-        \skap{ \diff{}{\grad{F}}( v ) }{ \diff{}{\grad{F}}( v ) \times v }  =  0 ,
-    \end{align*}
-    third
-    \begin{align}
+        \\
         \skap{ \grad{F} }
         { 2 \mult \darg{F} \mult \diff{2}{F}( v ) \mult
-        \diff{2}{F}( \vardiff p, \darg{F} ) }   &=
-        2 \alpha \mult \diff{2}{F}( v ) \mult
-        \diff{2}{F}( \grad{F}, \darg{F} \times v )
+        \diff{2}{F}( \vardiff p, \darg{F} ) }
+        &=
+        2 \mult \alpha \mult \diff{2}{F}( v ) \mult
+        \diff{2}{F}( \grad{F}, \darg{F} \times v ) ,
         \label{vdgk:1:c}
-    \end{align}
-    and, fourth,
-    \begin{align}
+        \\
         \skap{ \grad{F} }
         { -\diff{}{\grad{F}}( \vardiff p ) \mult \diff{2}{F}( v ) / \skaq{ \grad{F} } }
-        =   - \alpha \mult \diff{2}{F}( v ) \mult
+        &=
+        - \alpha \mult \diff{2}{F}( v ) \mult
         \diff{2}{F}( \grad{F}, \darg{F} \times v ) .
         \label{vdgk:1:d}
     \end{align}
 \end{subequations}
-Evaluating the scalar product of $ \grad{F} $
-with the right hand side of \eqref{eq:tadd}
-term by term yields
+Taking the scalar product of $ \grad{F} $
+with the right hand side of \eqref{eq:tadd} yields the terms
 \begin{subequations}
     \label{vdgk:2}
     \begin{align}
         \skap{ \grad{F} }
-        { 2 \dot{ \alpha } \mult \diff{}{\grad{F}}( v ) \times v }   =
-        - 2 \dot{ \alpha } \mult
-        \skap{ \grad{F} \times v }{ \diff{}{ \grad{F}( v ) } }   =
+        { 2 \dot{ \alpha } \mult \diff{}{\grad{F}}( v ) \times v }
+        &=
         - 2 \dot{ \alpha } \mult \diff{2}{F}( v, \grad{F} \times v ) ,
         \label{vdgk:2:a}
-    \end{align}
-    second
-    \begin{align}
+        \\
         \skap{ \grad{F} }
-        { \alpha \mult \diff{}{ \grad{F} }( \dot{ v } ) \times v }   &=
+        { \alpha \mult \diff{}{ \grad{F} }( \dot{ v } ) \times v }
+        &=
         \alpha \mult \diff{2}{F}( v ) \mult
-        \diff{2}{F}( \grad{F}, \darg{F} \times v )
+        \diff{2}{F}( \grad{F}, \darg{F} \times v ) ,
         \label{vdgk:2:b}
-    \end{align}
-    and, third,
-    \begin{align}
+        \\
         \skap{ \grad{F} }
-        { \alpha \mult \diff{2}{\grad{F}}( v ) \times v }   &=
+        { \alpha \mult \diff{2}{\grad{F}}( v ) \times v }
+        &=
         - \alpha \mult \diff{3}{F}( v, v, \grad{F} \times v ) .
         \label{vdgk:2:c}
     \end{align}
@@ -345,8 +337,30 @@ term by term yields
 Now, one recognizes, that $ \eqref{vdgk:1:a}  =  \eqref{vdgk:2:c} $,
 $ \eqref{vdgk:1:b}  =  \eqref{vdgk:2:a} $ and
 $ \eqref{vdgk:1:c} + \eqref{vdgk:1:d}  =  \eqref{vdgk:2:b} $.
-Thus, the $ \grad{F} $-component of $ \eqref{def:cf_vd_dgl} = \eqref{eq:tadd} $
-is trivially fulfilled for $ \vardiff p  =  \alpha \mult \grad{F} \times v $.
+
+Equation \eqref{vdgk:2:b} was obtained from
+\begin{subequations}
+    \begin{align}
+        \skap{ \grad{F} }{ -2 \mult \darg{F} \mult \diff{2}{F}( v, \vardiff v ) }
+        &=
+        - 2 \left[ \dot{ \alpha }  \mult  \diff{2}{F}( v, \grad{F} \times v )  +
+        \alpha  \mult \diff{2}{F}( v, \diff{}{\grad{F}}( v ) \times v ) \right]
+        \nonumber
+    \end{align}
+    and
+    \begin{align*}
+        \diff{2}{F}( v, \diff{}{\grad{F}}( v ) \times v )  =
+        \skap{ \diff{}{\grad{F}}( v ) }{ \diff{}{\grad{F}}( v ) \times v }  =  0 .
+    \end{align*}
+\end{subequations}
+Equation \eqref{vdgk:2:b} was obtained from
+\begin{align*}
+    \skap{ \grad{F} }
+    { 2 \dot{ \alpha } \mult \diff{}{\grad{F}}( v ) \times v }   =
+    - 2 \dot{ \alpha } \mult
+    \skap{ \grad{F} \times v }{ \diff{}{ \grad{F}( v ) } }   =
+    - 2 \dot{ \alpha } \mult \diff{2}{F}( v, \grad{F} \times v ) .
+\end{align*}
 
 
 
@@ -391,86 +405,93 @@ For $ \alpha $ one arrives at the differential equation
     \frac{ \diff{3}{ F }( v, v, \grad{ F } ) }{ \skaq{ \grad{ F } } } \right]  =  0 .
 \end{align}
 
+
 The equation can be cast in the form
 \begin{subequations}
     \begin{align}
-        \ddot{ \alpha }   =
         c_0 \mult \alpha  +
-        c_1 \mult \dot{ \alpha }
+        c_1 \mult \dot{ \alpha }  +
+        \ddot{ \alpha }
+        =  0
     \end{align}
     with the coefficients
     \begin{align}
-        &\begin{aligned}
-            c_0   &=
-            - \frac{ \diff{3}{F}( v, v, \grad{F} ) }{ \skaq{\grad{F}} }  +  \dots \\
-            &\hphantom{={}}- \diff{2}{F}( v )
-            \left[ \frac{ 1 }{ \skaq{v} }
-            \left[ \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
-            \frac{ \diff{2}{F}( \grad{F} \times v ) }{ \skaq{\grad{F}}^2 } \right]  -
-            \frac{ \diff{2}{F}( \grad{F} ) }{ \skaq{\grad{F}}^2 } \right]
-        \end{aligned}\\
-        &c_1   =
-        - 2 \mult \frac{ \diff{2}{F}( v, \grad{F} ) }{ \skaq{\grad{F}} }
+        c_0
+        &=
+        \frac{ \diff{3}{F}( v, v, \grad{F} ) }{ \skaq{\grad{F}} }  +
+        \diff{2}{F}( v )
+        \left[ \frac{ 1 }{ \skaq{v} }
+        \left[ \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
+        \frac{ \diff{2}{F}( \grad{F} \times v ) }{ \skaq{\grad{F}}^2 } \right]
+        -  \frac{ \diff{2}{F}( \grad{F} ) }{ \skaq{\grad{F}}^2 } \right] ,
+        \\
+        c_1
+        &=
+        2 \mult \frac{ \diff{2}{F}( v, \grad{F} ) }{ \skaq{\grad{F}} } .
     \end{align}
 \end{subequations}
 The coefficients can be rewritten a little more compactly as
 \begin{subequations}
     \begin{align}
-        &\begin{aligned}
-            c_0   &=
-            - \diff{3}{F}( v, v, \darg{F} )  +  \dots \\
-            &\hphantom{=}-\diff{2}{F}( v )
-            \left[ \frac{ 1 }{ \skaq{v} }
-            \left[ \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
-            \diff{2}{F}( \darg{F} \times v ) \right]  -
-            \diff{2}{F}( \darg{F} ) \right] ,
-        \end{aligned}\\
-        &c_1   =   - 2 \mult \diff{2}{F}( v, \darg{F} ) .
+        c_0   &=
+        \diff{3}{F}( v, v, \darg{F} )  +
+        \diff{2}{F}( v )
+        \left[ \frac{ \frac{ \diff{2}{F}( v ) }{ \skaq{\grad{F}} }  +
+        \diff{2}{F}( \darg{F} \times v ) }{ \skaq{v} }  -
+        \diff{2}{F}( \darg{F} ) \right] ,
+        \\
+        c_1   &=   2 \mult \diff{2}{F}( v, \darg{F} ) .
     \end{align}
 \end{subequations}
 
+% Summing up, the calculations have shown
+% that when $ u_0 $ is parallel to $ \grad{F} \times v $
+% then $ \Exp( F, p_0, v_0, u_0 ) $ can be calculated
+% via the following time evolution problem
+% \begin{subequations}
+%     \begin{align}
+%         \alpha( 0 )  &=  0
+%         \\
+%         \dot{ \alpha }( 0 )  &=  \frac{ \abs{ u_0 } }{ \abs{ \grad{F}( p_0 ) } }
+%     \end{align}
+% \end{subequations}
+% mit
+% \begin{align}
+%     C \mult \alpha  +  D \mult \dot{ \alpha }  +  \ddot{ \alpha }
+%     =
+%     0
+% \end{align}
+% and the evolution equation
+% \begin{subequations}
+%     \begin{align}
+%         \darg{F}( v ) \mult
+%         (   \skap{ C_1( v ) }{ \vardiff p }  + 
+%             \skap{ C_2( v ) }{ \vardiff v }     )  +
+%         C_3( v, \vardiff p )  +
+%         \vardiff \dot{ v }
+%         =
+%         0
+%     \end{align}
+%     with
+%     \begin{align}
+%         C_1( v )  &=
+%         \diff{2}{\grad{F}}( v )  -
+%         2 \mult \diff{}{\grad{F}}( \darg{F} ) \mult \diff{2}{F}( v )
+%         \\
+%         C_2( v )  &=
+%         2 \mult \diff{}{\grad{F}}( v )
+%         \\
+%         C_3( v, \vardiff p )  &=
+%         \diff{}{\grad{F}}( \vardiff p ) \mult
+%         \frac{ \diff{2}{F}(v ) }{ \skaq{ \grad{F} } }
+%     \end{align}
+% \end{subequations}
 
 
 
-Summing up, the calculations have shown
-that when $ u_0 $ is parallel to $ \grad{F} \times v $
-then $ \Exp( F, p_0, v_0, u_0 ) $ can be calculated
-via the following time evolution problem
-\begin{align}
-    \alpha( 0 )  =  0  \\
-    \dot{ \alpha }( 0 )  =  \frac{ \abs{ u_0 } }{ \abs{ \grad{F}( p_0 ) } }
-\end{align}
-mit
-\begin{align}
-    \ddot{ \alpha }   =
-    C \mult \alpha  +  D \mult \dot{ \alpha }
-\end{align}
-and the evolution equation
-\begin{subequations}
-    \begin{align}
-        \vardiff \dot{ v }   &=
-        \darg{F}( v ) \mult
-        (   \skap{ C_1( v ) }{ \vardiff p }  + 
-            \skap{ C_2( v ) }{ \vardiff v }     )  +
-        C_3( v, \vardiff p )
-    \end{align}
-    with
-    \begin{align}
-        C_1( v )  &=
-        -\diff{2}{\grad{F}}( v )  +
-        2 \mult \diff{}{\grad{F}}( \darg{F} ) \mult \diff{2}{F}( v )  \\
-        C_2( v )  &=
-        -2 \mult \diff{}{\grad{F}}( v )  \\
-        C_3( v, \vardiff p )  &=
-        - \diff{}{\grad{F}}( \vardiff p ) \mult \frac{ \diff{2}{F}(v ) }{ \skaq{ \grad{F} } }
-    \end{align}
-\end{subequations}
-
-
-
-Transversals property
-\begin{align}
-    \skap{ \vardiff p }{ v }^\bullet  =
-    \skap{ \vardiff v }{ v }  +  \skap{ \vardiff p }{ \dot{ v } }  =
-    \vardiff( \tfrac12 \skaq{ v } )  +  \skap{ \vardiff p }{ \dot{ v } }
-\end{align}
+% Transversals property
+% \begin{align}
+%     \skap{ \vardiff p }{ v }^\bullet  =
+%     \skap{ \vardiff v }{ v }  +  \skap{ \vardiff p }{ \dot{ v } }  =
+%     \vardiff( \tfrac12 \skaq{ v } )  +  \skap{ \vardiff p }{ \dot{ v } }
+% \end{align}
