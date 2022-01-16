@@ -411,7 +411,23 @@ The coefficients can be rewritten a little more compactly as
         c_1   &=   2 \mult \diff{2}{F}( v, \darg{F} ) .
     \end{align}
 \end{subequations}
-
+Using $ n  :=  \grad{F} / \abs{ \grad{F} } $ another form is
+\begin{subequations}
+    \begin{align}
+        c_0
+        &=
+        \frac{ \diff{3}{F}( v, v, n ) }{ \abs{\grad{F}} }  +
+        \frac{ \diff{2}{F}( v ) }{ \abs{ \grad{F} }^2 } \mult
+        \left[
+        \frac{ \diff{2}{F}( v ) +
+        \diff{2}{F}( n \times v ) }{ \skaq{v} }
+        -  \diff{2}{F}( n ) \right] ,
+        \\
+        c_1
+        &=
+        2 \mult \frac{ \diff{2}{F}( v, n ) }{ \abs{\grad{F}} } .
+    \end{align}
+\end{subequations}
 
 
 % Transversals property
